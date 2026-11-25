@@ -1,0 +1,2826 @@
+<!doctype html><html><head><meta charset=utf-8><title>Quiz Pendidikan Agama Islam</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* QuizLearn: monokrom hitam-putih-abu dengan efek kaca (glass).
+   Tata letak: satu kolom sempit seperti aplikasi HP, kartu kaca di atas latar abu bergradasi,
+   navigasi melayang di bawah. Semua warna diatur lewat variabel di bawah ini. */
+:root{
+  --bg:#E8E8E8;
+  --ink:#0A0A0A;
+  --ink-2:#4F4F4F;
+  --glass:rgba(255,255,255,.52);
+  --glass-hi:rgba(255,255,255,.72);
+  --edge:rgba(255,255,255,.82);
+  --track:rgba(0,0,0,.10);
+  --shadow:0 8px 24px rgba(0,0,0,.07), inset 0 1px 0 rgba(255,255,255,.9);
+  --dark-1:#2C2C2C;
+  --dark-2:#0A0A0A;
+  --font:'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:14px;
+  line-height:1.5;
+}
+button,input,textarea{font-family:inherit;font-size:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.on-dark :focus-visible{outline-color:#fff}
+
+/* latar */
+.bg{
+  position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(320px 320px at 100% 0%, #fff 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(320px 320px at 0% 42%, rgba(90,90,90,.38) 0%, rgba(90,90,90,0) 70%),
+    radial-gradient(340px 340px at 100% 86%, rgba(60,60,60,.34) 0%, rgba(60,60,60,0) 70%),
+    linear-gradient(165deg,#F6F6F6 0%,#DCDCDC 48%,#F0F0F0 100%);
+}
+
+/* kerangka */
+.app{
+  max-width:520px;margin:0 auto;
+  padding-block:20px 120px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  display:flex;flex-direction:column;gap:14px;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:40px;height:40px;border-radius:12px;background:var(--ink);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.brand-name{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.brand-sub{font-size:12px;color:var(--ink-2)}
+main{display:flex;flex-direction:column;gap:14px;min-width:0;outline:none}
+
+h1.h1{margin:6px 0 0;font-size:27px;font-weight:800;letter-spacing:-.025em;line-height:1.15;text-wrap:balance}
+h2.h2{margin:0;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+h3.h3{margin:0;font-size:15px;font-weight:700}
+.lead{margin:0;color:var(--ink-2);font-size:14px;line-height:1.5}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ink);flex:none}
+.muted{color:var(--ink-2)}
+.small{font-size:12px}
+
+/* kaca */
+.glass{
+  background:var(--glass);
+  -webkit-backdrop-filter:blur(20px) saturate(125%);
+  backdrop-filter:blur(20px) saturate(125%);
+  border:1px solid var(--edge);
+  box-shadow:var(--shadow);
+}
+.card{border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+
+/* tombol */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:46px;padding:0 20px;border-radius:23px;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(180deg,var(--dark-1),var(--dark-2));
+  color:#fff;font-weight:700;
+  box-shadow:0 8px 18px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.22);
+  text-align:center;
+}
+.btn[disabled]{background:rgba(0,0,0,.12);color:#5A5A5A;box-shadow:none;border-color:transparent;cursor:not-allowed}
+.btn-ghost{
+  background:var(--glass-hi);color:var(--ink);border:1px solid var(--edge);
+  box-shadow:0 4px 12px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9);
+}
+.btn-ghost[disabled]{background:rgba(255,255,255,.35);color:#5A5A5A}
+.btn-light{background:rgba(255,255,255,.94);color:var(--ink);border-color:rgba(255,255,255,.9);box-shadow:none}
+.btn-sm{min-height:40px;padding:0 16px;font-size:13px}
+.btn-block{width:100%}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>.btn{flex:1 1 120px}
+.back{
+  align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:40px;
+  padding:0 14px 0 10px;border-radius:20px;border:1px solid var(--edge);background:var(--glass-hi);font-weight:600;font-size:13px;
+}
+
+/* progress */
+.bar{height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#3A3A3A,var(--ink))}
+
+/* statistik */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stat{border-radius:20px;padding:12px 10px;display:flex;flex-direction:column;gap:6px}
+.stat svg{display:block}
+.stat b{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;line-height:1.3;color:var(--ink-2)}
+
+/* kartu gelap */
+.dark{
+  position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(135deg,rgba(44,44,44,.94),rgba(10,10,10,.96));
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 14px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.dark::before{
+  content:"";position:absolute;top:-70px;right:-50px;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 70%);pointer-events:none;
+}
+.dark>*{position:relative}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#CFCFCF}
+.dark .meta{color:#CFCFCF;font-size:13px}
+.cta{flex-direction:row;align-items:center;gap:14px;flex-wrap:wrap}
+.cta .grow{flex:1 1 160px;display:flex;flex-direction:column;gap:3px}
+.cta .t{font-size:17px;font-weight:700;line-height:1.25}
+
+/* daftar bab */
+.listbtn{
+  width:100%;text-align:left;flex-direction:row;align-items:center;gap:12px;color:var(--ink);
+}
+.listbtn .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.listbtn .tt{font-weight:700;font-size:15px;line-height:1.3}
+.listbtn .ds{font-size:12px;color:var(--ink-2)}
+.num{
+  flex:none;width:44px;height:44px;border-radius:14px;border:1px solid var(--edge);
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(210,210,210,.6));
+  display:flex;align-items:center;justify-content:center;font-weight:800;
+  box-shadow:0 6px 14px rgba(0,0,0,.08), inset 0 1px 0 #fff;
+}
+
+.note{font-size:12px;color:var(--ink-2);line-height:1.5}
+
+/* soal */
+.qhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+/* Transisi saat berpindah soal: kartu soal keluar sebentar, lalu masuk dari arah tujuan.
+   Hanya opacity dan transform yang dianimasikan agar tetap ringan di HP. */
+@keyframes qIn{from{opacity:0;transform:translate3d(var(--qx,18px),0,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+.qsec.q-in-next{--qx:18px;animation:qIn .26s cubic-bezier(.22,.68,0,1) backwards;will-change:transform,opacity}
+.qsec.q-in-prev{--qx:-18px;animation:qIn .26s cubic-bezier(.22,.68,0,1) backwards;will-change:transform,opacity}
+.qsec.q-out-next,.qsec.q-out-prev{opacity:0;transition:opacity .11s ease-in,transform .11s ease-in;will-change:transform,opacity}
+.qsec.q-out-next{transform:translate3d(-12px,0,0)}
+.qsec.q-out-prev{transform:translate3d(12px,0,0)}
+#main.q-swap .qsec *{transition:none!important}
+@media(prefers-reduced-motion:reduce){.qsec.q-in-next,.qsec.q-in-prev{animation:none}.qsec.q-out-next,.qsec.q-out-prev{transition:none}.ov,.ov .sheet,.ov.is-closing,.ov.is-closing .sheet{animation:none!important}}
+/* Transisi halus untuk perubahan status (pilihan jawaban, progres, nomor soal, tombol kalkulator, dock) */
+html{scrollbar-gutter:stable}
+.opt{transition:background-color .22s ease,color .22s ease,border-color .22s ease,opacity .22s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease}
+.opt .lt{transition:background-color .22s ease,color .22s ease,border-color .22s ease}
+.bar>i{transition:width .38s cubic-bezier(.22,.68,0,1)}
+.nb{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease,filter .18s ease}
+.ck{transition:transform .12s cubic-bezier(.2,.8,.2,1),background-color .12s ease,box-shadow .12s ease,filter .12s ease}
+.cdisp .cd{transition:font-size .12s ease}
+.dock button{transition:background-color .25s ease,color .25s ease,transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease}
+.ov{will-change:opacity}
+.ov .sheet{will-change:transform,opacity}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;min-height:28px;padding:0 12px;border-radius:14px;
+  background:var(--glass-hi);border:1px solid var(--edge);font-size:12px;font-weight:600;
+}
+.qtext{margin:0;font-size:17px;font-weight:700;line-height:1.4;text-wrap:pretty}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;min-height:52px;padding:12px 14px;border-radius:18px;
+  background:var(--glass-hi);border:1px solid var(--edge);
+  box-shadow:0 4px 12px rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.9);
+  line-height:1.4;
+}
+.opt .lt{
+  flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;margin:0;
+}
+.opt .tx{flex:1;min-width:0}
+.opt .tag{display:block;margin-top:4px;font-size:12px;font-weight:700}
+.opt.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opt.sel .lt{border-color:#fff;background:#fff;color:var(--ink)}
+.opt.ok{background:var(--ink);color:#fff;border-color:var(--ink)}
+.opt.ok .lt{border-color:#fff;background:#fff;color:var(--ink)}
+.opt.bad{background:rgba(255,255,255,.9);border:2px dashed var(--ink)}
+.opt.bad .tx>span:first-child{text-decoration:line-through;text-decoration-thickness:1.5px}
+.opt.dim{opacity:.55}
+.opt[disabled]{cursor:default}
+.og{display:flex;flex-direction:column;gap:8px}
+.ex{margin:0 4px;border-radius:14px;padding:10px 14px;background:var(--glass-hi);border:1px solid var(--edge);display:flex;flex-direction:column;gap:3px;font-size:13px;line-height:1.5}
+.ex.ok{border:1.5px solid var(--ink)}
+.ex.bad{border:1.5px dashed var(--ink)}
+.ex b{display:flex;align-items:center;gap:6px;font-size:13px}
+.ex p{margin:0}
+.fb{border-radius:18px;padding:14px;background:var(--glass-hi);border:1px solid var(--edge);display:flex;flex-direction:column;gap:4px}
+.fb b{font-size:15px;display:flex;align-items:center;gap:8px}
+.fb p{margin:0;line-height:1.55}
+
+/* ujian */
+.timer{
+  margin-left:auto;background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;
+}
+.timer[data-low="1"]{background:#fff;color:var(--ink);text-decoration:underline}
+.chip-btn{position:relative;cursor:pointer;color:var(--ink)}
+.chip-btn::after{content:"";position:absolute;inset:-8px -4px}
+.ctl{display:grid;grid-template-columns:56px minmax(0,1fr) 56px;gap:10px}
+.ctl .btn{padding:0;min-width:0}
+.btn-step{line-height:1}
+.btn-step svg{display:block;flex:none}
+.btn-ragu[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nb{position:relative}
+.nb.ragu{background:#8C8C8C;border-color:#8C8C8C;color:#0A0A0A}
+.nb.ragu .l{color:#0A0A0A}
+.nb .n{font-size:15px}
+#overlay:empty{display:none}
+.ov{
+  position:fixed;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;
+  padding:16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px));
+  background:rgba(10,10,10,.38);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  animation:popupBackdropIn .2s ease-out both;
+}
+@keyframes popupBackdropIn{from{opacity:0}to{opacity:1}}
+@keyframes popupSheetIn{from{opacity:0;transform:translate3d(0,18px,0) scale(.975)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+@keyframes popupSheetOut{from{opacity:1;transform:translate3d(0,0,0) scale(1)}to{opacity:0;transform:translate3d(0,10px,0) scale(.985)}}
+@keyframes popupBackdropOut{from{opacity:1}to{opacity:0}}
+.ov .sheet{animation:popupSheetIn .24s cubic-bezier(.2,.75,.25,1) both;transform-origin:center bottom}
+.ov.is-closing{pointer-events:none;animation:popupBackdropOut .17s ease-in both}
+.ov.is-closing .sheet{animation:popupSheetOut .17s ease-in both}
+.sheet{
+  width:100%;max-width:440px;max-height:calc(100% - 8px);overflow:auto;border-radius:24px;padding:16px;
+  display:flex;flex-direction:column;gap:12px;
+  background:rgba(255,255,255,.9);border:1px solid var(--edge);box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+.sheet-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.iconbtn{
+  width:40px;height:40px;border-radius:20px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;padding:0;
+}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.lg{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;border:1px solid rgba(0,0,0,.25);background:#fff;font-style:normal;font-weight:800;font-size:11px;color:var(--ink)}
+.lg-done{background:var(--ink);border-color:var(--ink);color:#fff}
+.lg-now{border:2.5px solid var(--ink)}
+.lg-ragu{background:#8C8C8C;border-color:#8C8C8C;color:#0A0A0A}
+.nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(48px,1fr));gap:8px}
+.nb{
+  min-height:54px;border-radius:14px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:0;
+  font-variant-numeric:tabular-nums;
+}
+.nb .n{font-size:15px;font-weight:800}
+.nb .l{font-size:12px;font-weight:700;color:var(--ink-2)}
+.nb.done{background:var(--ink);border-color:var(--ink);color:#fff}
+.nb.done .l{color:#fff}
+.chip-ico{padding:0;width:36px;justify-content:center}
+.chip-ico svg{display:block}
+.cdisp{border-radius:18px;padding:12px 16px;background:rgba(255,255,255,.7);border:1px solid var(--edge);display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;gap:2px;min-height:84px;overflow:hidden}
+.cdisp .ce{font-size:13px;color:var(--ink-2);min-height:20px;max-width:100%;white-space:nowrap;overflow:hidden}
+.cdisp .cd{font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15;max-width:100%;white-space:nowrap;overflow:hidden}
+.ckeys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ck{height:52px;border-radius:16px;border:1px solid var(--edge);background:var(--glass-hi);color:var(--ink);font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0;touch-action:manipulation;box-shadow:0 4px 12px rgba(0,0,0,.05), inset 0 1px 0 rgba(255,255,255,.9)}
+.ck svg{display:block}
+.ck.fn{background:rgba(0,0,0,.08)}
+.ck.op{background:linear-gradient(180deg,var(--dark-1),var(--dark-2));color:#fff;border-color:rgba(255,255,255,.18)}
+.ck:active{transform:scale(.96)}
+.nb.bad{background:rgba(255,255,255,.9);border:2px dashed var(--ink)}
+.sheet-h h2.h2{font-size:19px}
+.nb.now{border:3px solid var(--ink);box-shadow:0 0 0 2px rgba(255,255,255,.9)}
+.nb.done.now{box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--ink)}
+.confirm{border-radius:18px;padding:14px;background:rgba(255,255,255,.9);border:2px solid var(--ink);display:flex;flex-direction:column;gap:10px}
+.confirm p{margin:0;line-height:1.5}
+ol.rules,ul.rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;line-height:1.5}
+
+/* hasil */
+.score{font-size:64px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.score small{font-size:20px;font-weight:700;color:var(--ink-2);letter-spacing:0}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.two .glass{border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:2px}
+.two b{font-size:26px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums}
+.two span{font-size:12px;color:var(--ink-2)}
+
+/* riwayat */
+.hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.hist li{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge);
+}
+.hist .hn{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+.hist .hn b{font-size:13px}
+.hist .hn span{font-size:12px;color:var(--ink-2)}
+.hist .nv{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+/* penguasaan */
+.mast,.qlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mrow{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge)}
+.mtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.mt{font-weight:700;font-size:14px;line-height:1.35;min-width:0}
+.mbot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pill{
+  flex:none;display:inline-flex;align-items:center;min-height:24px;padding:0 10px;border-radius:12px;
+  font-size:11px;font-weight:700;white-space:nowrap;border:1.5px solid var(--ink);background:#fff;color:var(--ink);
+}
+.pill-kuasai{background:var(--ink);color:#fff}
+.pill-belum{border-style:dashed}
+.pill-data{border-color:rgba(0,0,0,.3);color:var(--ink-2);font-weight:600}
+.qlist li{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:18px;background:var(--glass-hi);border:1px solid var(--edge)}
+.qt{font-weight:600;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.qm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+textarea{
+  width:100%;min-height:96px;resize:vertical;padding:12px;border-radius:16px;border:1px solid var(--edge);
+  background:rgba(255,255,255,.85);line-height:1.4;
+}
+.filebtn{position:relative;overflow:hidden}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.filebtn:focus-within{outline:2px solid var(--ink);outline-offset:2px}
+.empty{margin:0;padding:18px 8px;text-align:center;color:var(--ink-2);line-height:1.5}
+
+/* grafik */
+.chart{display:block;width:100%;height:auto}
+.chart .gl{stroke:rgba(0,0,0,.10);stroke-width:1}
+.chart text{font-family:var(--font);font-size:10px;fill:var(--ink-2)}
+.chart .ln{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.chart .pt{fill:#fff;stroke:var(--ink);stroke-width:2.5}
+.chart .pe{fill:var(--ink);stroke:#fff;stroke-width:2}
+.chart .tip{fill:var(--ink)}
+.chart text.tipt{fill:#fff;font-weight:700;font-size:11px}
+
+/* navigasi bawah */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:20;
+  padding-left:max(14px, env(safe-area-inset-left, 0px));
+  padding-right:max(14px, env(safe-area-inset-right, 0px));
+  padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+  pointer-events:none;
+}
+.dock-bar{
+  pointer-events:auto;max-width:520px;margin:0 auto;height:68px;padding:0 8px;border-radius:32px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(24px) saturate(130%);backdrop-filter:blur(24px) saturate(130%);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 12px 32px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.95);
+}
+.dock button{
+  flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;height:54px;margin:0 2px;padding:0;
+  border:0;border-radius:24px;background:transparent;color:var(--ink-2);font-size:11px;font-weight:600;
+}
+.dock button[aria-current="page"]{background:var(--ink);color:#fff;font-weight:700}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom, 0px));transform:translate(-50%,12px);z-index:30;
+  max-width:min(440px, calc(100vw - 32px));padding:12px 18px;border-radius:18px;background:var(--ink);color:#fff;
+  font-weight:600;font-size:13px;line-height:1.4;text-align:center;opacity:0;pointer-events:none;
+  transition:opacity .2s, transform .2s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.wel{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+  padding:24px max(24px, env(safe-area-inset-right, 0px)) 24px max(24px, env(safe-area-inset-left, 0px))}
+.wel.fade{opacity:0;transition:opacity .25s ease}
+.wel-blur{position:absolute;inset:0;background:rgba(240,240,240,.42);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.wel-body{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;
+  animation:welIn .7s cubic-bezier(.22,1,.36,1) backwards;transition:opacity .35s ease, transform .35s ease}
+.wel-body.out{opacity:0;transform:scale(.96);pointer-events:none}
+.wel-t{margin:0;font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.wel-btn{min-height:56px;padding:0 36px;font-size:17px;border-radius:28px}
+@keyframes welIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes ldIn{from{opacity:0}to{opacity:1}}
+.ld .wel-blur{animation:ldIn .25s ease both}
+.ld-pct{font-size:56px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ld-bar{width:min(240px,64vw);height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.ld-bar i{display:block;height:100%;width:100%;border-radius:4px;background:var(--ink);transform:scaleX(0);transform-origin:left;will-change:transform}
+.ld-lbl{font-size:14px;font-weight:600;color:var(--ink-2)}
+@media (max-width:360px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .score{font-size:52px}
+}
+
+/* Efek interaksi universal untuk seluruh tombol, termasuk navigasi dan tombol dinamis */
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn){
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  cursor:pointer;
+  transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,filter .18s ease,background-color .18s ease;
+  transform-origin:center;
+}
+@media (hover:hover) and (pointer:fine){
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):hover{
+  filter:brightness(1.08);
+  box-shadow:0 0 0 1px rgba(255,255,255,.22),0 0 16px rgba(255,255,255,.16);
+}
+}
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):active,
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn).ql-pressed{
+  transform:scale(.955);
+  filter:brightness(1.16);
+  box-shadow:0 0 0 2px rgba(255,255,255,.62),0 0 10px rgba(255,255,255,.42),0 0 24px rgba(255,255,255,.24);
+}
+:where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn):not([disabled]):not([aria-disabled="true"]):focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:3px;
+}
+@media (prefers-reduced-motion:reduce){
+  :where(button, input[type="button"], input[type="submit"], input[type="reset"], [role="button"], .btn, .back, .filebtn, .chip-btn){transition:none}
+}
+
+</style>
+<div class="bg" aria-hidden="true"></div>
+
+<div class="app">
+  <header class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></svg>
+    </div>
+    <div>
+      <div class="brand-name">QuizLearn</div>
+      <div class="brand-sub" id="mapel"></div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<nav class="dock" aria-label="Navigasi utama"><div class="dock-bar" id="dock"></div></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>Website ini membutuhkan JavaScript. Aktifkan JavaScript di browser Anda.</noscript>
+<script>window.QL_CAN_DOWNLOAD = false;</script>
+<script>
+/*
+  DATA SOAL
+  Edit file ini untuk mengganti isi website. Tidak perlu mengubah file lain.
+
+  Aturan penulisan:
+  - "kunci" adalah nomor pilihan jawaban yang benar, dimulai dari 0
+    (0 = pilihan A, 1 = pilihan B, 2 = pilihan C, 3 = pilihan D).
+  - Setiap soal harus punya "id" yang berbeda.
+  - Setiap soal wajib punya tepat 4 pilihan.
+  - "jelas" adalah penjelasan jawaban yang benar. "jelasOpsi" (opsional) berisi 4 penjelasan,
+    satu per pilihan. Yang dipakai hanya penjelasan pilihan yang salah (isi pilihan benar boleh dikosongkan).
+  - Tanda kutip di dalam teks sebaiknya memakai tanda ' atau " yang diberi garis miring: \"
+*/
+window.QL_DATA = {
+  mapel: "Pendidikan Agama Islam",
+  kunciPenyimpanan: "pai",   // kode singkat tanpa spasi; bedakan untuk tiap mata kuliah
+
+  pengaturan: {
+    ujianJumlahSoal: 60,   // jumlah soal dalam satu ujian (diambil acak dari semua bab)
+    ujianMenit: 60,        // durasi ujian dalam menit
+    penguasaan: {          // batas analisis di menu Progres (boleh dihapus untuk memakai nilai bawaan)
+      batasDikuasai: 80,   // persen benar minimal agar bab berstatus Dikuasai
+      batasCukup: 60,      // persen benar minimal agar bab berstatus Cukup
+      minJawabanBab: 5,    // jumlah jawaban minimal agar bab dinilai
+      minJawabanSoal: 2,   // soal dinilai setelah dijawab minimal sekian kali
+      batasSoalSalah: 50   // persen salah minimal agar soal masuk daftar "sering salah"
+    }
+  },
+
+  // Untuk menambah soal, tambahkan objek ke array "bab" dengan format berikut:
+  //
+  // bab: [
+  //   {
+  //     id: "bab1",
+  //     judul: "Bab 1. Judul Bab",
+  //     soal: [
+  //       {
+  //         id: "b1-1",
+  //         tanya: "Teks pertanyaan?",
+  //         opsi: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
+  //         kunci: 1,
+  //         jelas: "Penjelasan mengapa jawaban yang benar itu benar.",
+  //         jelasOpsi: ["Mengapa A salah.", "", "Mengapa C salah.", "Mengapa D salah."]
+  //       }
+  //     ]
+  //   }
+  // ]
+  bab: [
+    {
+      "id": "bab1",
+      "judul": "Bab 1. Ketuhanan, Tauhid, dan Keimanan",
+      "soal": [
+        {
+          "id": "b1-1",
+          "tanya": "Prasyarat menjadi mukmin billah adalah memahami isi Al-Qur'an. Di antara alasan yang mendukung pernyataan tersebut adalah ....",
+          "opsi": [
+            "Al-Qur'an adalah senjata ampuh bagi umat Islam",
+            "Kehendak Allah akan diketahui oleh manusia jika memahami isi Al-Qur'an",
+            "Kehendak Allah diberikan kepada manusia yang dipilih-Nya dalam Al-Qur'an",
+            "Al-Qur'an adalah kebanggaan umat manusia"
+          ],
+          "kunci": 1,
+          "jelas": "Al-Qur'an merupakan sumber petunjuk bagi manusia. Dengan memahami isinya, manusia dapat mengetahui kehendak dan ketentuan Allah sebagai pedoman hidup."
+        },
+        {
+          "id": "b1-2",
+          "tanya": "Berikut ini merupakan salah satu strategi dalam rangka pembinaan iman kepada Allah, yaitu ....",
+          "opsi": [
+            "Membandingkan kekurangan-kekurangan manusia",
+            "Meyakinkan orang tentang kebenaran konsep yang diajukan Allah",
+            "Membandingkan keinginan Allah dengan keinginan manusia",
+            "Mencermati konsep-konsep yang diajukan Allah"
+          ],
+          "kunci": 1,
+          "jelas": "Pembinaan iman dilakukan dengan memperkenalkan dan meyakinkan manusia mengenai kebenaran ajaran Allah."
+        },
+        {
+          "id": "b1-3",
+          "tanya": "Salah satu ciri orang yang beriman kepada Allah adalah bertawakal kepada-Nya. Pengertian bertawakal kepada Allah dalam kaitannya dengan iman adalah ....",
+          "opsi": [
+            "Menerima dan menerapkan kepastian Allah",
+            "Menerima dan mengagumi pemberian dari Allah",
+            "Menerima dan menerapkan ajaran Allah",
+            "Mengakui dan membenarkan keputusan Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Tawakal berarti berserah diri kepada Allah setelah berusaha, disertai keyakinan terhadap ketetapan-Nya."
+        },
+        {
+          "id": "b1-4",
+          "tanya": "Beriman atau tidaknya seseorang kepada Allah ditentukan berdasarkan ketentuan atau kehendak Allah. Maksud pernyataan tersebut adalah ....",
+          "opsi": [
+            "Menilai beriman atau tidaknya seseorang dengan parameter keyakinannya sendiri",
+            "Menilai beriman atau tidaknya seseorang dengan parameter kepatuhannya terhadap Allah",
+            "Manusia tidak layak menilai beriman atau tidaknya seseorang",
+            "Manusia harus menentukan parameter untuk menilai beriman atau tidaknya seseorang"
+          ],
+          "kunci": 1,
+          "jelas": "Keimanan berkaitan dengan keyakinan dan kepatuhan terhadap ketentuan Allah. Penilaian hakiki atas iman seseorang tetap merupakan hak Allah."
+        },
+        {
+          "id": "b1-5",
+          "tanya": "Iman seseorang dapat bertambah dan berkurang. Untuk memperbarui iman seseorang, langkah yang tepat adalah ....",
+          "opsi": [
+            "Berdoa kepada Allah setiap saat",
+            "Mempelajari Al-Qur'an secara rutin dan terjadwal",
+            "Mempelajari Al-Qur'an setiap saat",
+            "Mempelajari Al-Qur'an ketika kondisi panik"
+          ],
+          "kunci": 1,
+          "jelas": "Mempelajari Al-Qur'an secara rutin membantu memperkuat iman dan meningkatkan pemahaman terhadap ajaran Islam."
+        },
+        {
+          "id": "b1-6",
+          "tanya": "Konsep Ketuhanan dalam Islam yang sejalan dengan ajaran Islam adalah ....",
+          "opsi": [
+            "Memfungsikan ajaran Allah",
+            "Memikirkan keadaan Allah",
+            "Memberikan kebebasan kepada Allah",
+            "Mengakui adanya Allah"
+          ],
+          "kunci": 0,
+          "jelas": "Konsep Ketuhanan tidak berhenti pada pengakuan terhadap keberadaan Allah, tetapi diwujudkan dengan menjadikan ajaran-Nya sebagai pedoman. Catatan: Kunci sumber perlu dicocokkan kembali dengan bahan ajar."
+        },
+        {
+          "id": "b1-7",
+          "tanya": "Bertuhan atau tidaknya manusia dipandang dari ajaran Islam adalah ....",
+          "opsi": [
+            "Mengakui keteraturan ciptaan Allah",
+            "Mengakui kebesaran Allah",
+            "Menerima ajaran Allah",
+            "Mengagumi kekuasaan Allah"
+          ],
+          "kunci": 2,
+          "jelas": "Keberagamaan diwujudkan melalui penerimaan dan kepatuhan terhadap ajaran Allah."
+        },
+        {
+          "id": "b1-8",
+          "tanya": "Di dalam Al-Qur'an terdapat ayat-ayat yang mengungkapkan gejala alamiah, seperti turunnya hujan dan tumbuhnya berbagai tanaman dari bumi yang gersang. Salah satu fungsi pengungkapan gejala alamiah tersebut adalah menyadarkan manusia agar ....",
+          "opsi": [
+            "Mengakui ciptaan Allah",
+            "Tidak egois",
+            "Bersikap egois",
+            "Patuh terhadap Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Fenomena alam menunjukkan kebesaran Allah dan diharapkan mendorong manusia untuk mengenal serta menaati-Nya."
+        },
+        {
+          "id": "b1-9",
+          "tanya": "Di kalangan umat Islam terdapat dua mazhab (aliran) teologi yang berseberangan, yaitu ....",
+          "opsi": [
+            "Jabariah dan Qadariah",
+            "Naqsyabandiyah dan Tijaniyah",
+            "Ahlus Sunnah dan Syiah",
+            "Syafi'iyah dan Hanafiyah"
+          ],
+          "kunci": 0,
+          "jelas": "Jabariah dan Qadariah memiliki pandangan berbeda mengenai kehendak manusia dan ketentuan Allah."
+        },
+        {
+          "id": "b1-10",
+          "tanya": "Salah satu usaha yang paling pokok dalam menumbuhkembangkan konsep Ketuhanan Yang Maha Esa di Indonesia adalah ....",
+          "opsi": [
+            "Meyakinkan bahwa Allah adalah Tuhan",
+            "Meyakinkan adanya Tuhan",
+            "Mempelajari perbuatan Tuhan",
+            "Mempelajari ketentuan Tuhan"
+          ],
+          "kunci": 3,
+          "jelas": "Memahami ketentuan Tuhan membantu manusia mengenal kehendak dan aturan-Nya. Catatan: Rumusan soal dan kunci perlu diperiksa terhadap sumber materi."
+        },
+        {
+          "id": "b1-11",
+          "tanya": "Menurut tata bahasa Arab, kata iman berasal dari kata dasar aamana. Kata tersebut menunjukkan pekerjaan yang telah dilakukan. Kata aamana termasuk kata kerja (fi'il) yang disebut ....",
+          "opsi": [
+            "Madhi",
+            "Mudhari",
+            "Amar",
+            "Nahyi"
+          ],
+          "kunci": 0,
+          "jelas": "Fi'il madhi adalah kata kerja yang menunjukkan perbuatan yang telah terjadi. Aamana berarti telah beriman."
+        },
+        {
+          "id": "b1-12",
+          "tanya": "Seseorang tidak terpengaruh oleh berbagai kasus yang datang dari mana pun, baik dari kalangan jin, manusia, maupun dari dirinya sendiri. Penjelasan tersebut lebih mendekati pengertian ....",
+          "opsi": [
+            "Tawakal",
+            "Mawas diri",
+            "Bersikap ilmiah",
+            "Optimis"
+          ],
+          "kunci": 1,
+          "jelas": "Mawas diri berarti mampu mengawasi dan mengendalikan diri ketika menghadapi pengaruh atau persoalan."
+        },
+        {
+          "id": "b1-13",
+          "tanya": "Pembinaan menurut etimologi berasal dari kata bana yang berarti ....",
+          "opsi": [
+            "Membangun",
+            "Mengembangkan",
+            "[Pilihan tidak tercantum dalam sumber]",
+            "Merenovasi"
+          ],
+          "kunci": 0,
+          "jelas": "Kata bana dalam bahasa Arab berarti membangun. Pilihan C memang tidak tersedia dalam naskah sumber."
+        },
+        {
+          "id": "b1-14",
+          "tanya": "Pokok keutamaan hidup manusia yang tidak dimiliki hewan atau makhluk lainnya adalah ....",
+          "opsi": [
+            "Harta, keturunan, dan jiwa",
+            "Agama, akal, dan harta",
+            "Agama, akal, dan jiwa",
+            "Jiwa, akal, dan keturunan"
+          ],
+          "kunci": 2,
+          "jelas": "Agama, akal, dan jiwa termasuk unsur pokok kemaslahatan manusia yang harus dijaga."
+        },
+        {
+          "id": "b1-15",
+          "tanya": "Akhlak yang mencerminkan sikap bertauhid adalah ....",
+          "opsi": [
+            "Mengesakan Allah dan hanya memohon pertolongan kepada-Nya",
+            "Menyembah berhala",
+            "Melakukan permainan jelangkung",
+            "Memercayai ramalan zodiak"
+          ],
+          "kunci": 0,
+          "jelas": "[REKONSTRUKSI] Pilihan A tidak terbaca di naskah sumber; teks pilihan A ini adalah REKONSTRUKSI dan harus dicocokkan dengan naskah asli. Tauhid berarti mengesakan Allah dan tidak menyekutukan-Nya. Isi pilihan A tidak terbaca sehingga jawaban spesifiknya tidak dapat dijelaskan."
+        },
+        {
+          "id": "b1-16",
+          "tanya": "Menurut Surah Al-A'raf ayat 172, prinsip tauhid mengandung arti bahwa ....",
+          "opsi": [
+            "Hukum Islam tidak diterapkan berdasarkan paksaan",
+            "Pada dasarnya semua manusia sama meskipun memiliki perbedaan lahiriah",
+            "Hukum Islam harus dilandaskan pada prinsip keadilan",
+            "Seluruh manusia berada di bawah ketetapan yang sama sebagai hamba Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Surah Al-A'raf ayat 172 menjelaskan kesaksian primordial manusia terhadap keesaan Allah dan kedudukan manusia sebagai hamba-Nya."
+        },
+        {
+          "id": "b1-17",
+          "tanya": "Salah satu cabang prinsip tauhid adalah bahwa beban hukum yang ditetapkan Allah bertujuan untuk kemaslahatan hidup manusia, bukan untuk kepentingan Allah. Hal tersebut didasarkan pada penjelasan ayat ....",
+          "opsi": [
+            "Surah Al-Ma'idah ayat 3",
+            "Surah Al-Hujurat ayat 13",
+            "Surah Al-Baqarah ayat 2–3",
+            "Surah Al-Isra' ayat 7"
+          ],
+          "kunci": 2,
+          "jelas": "Kunci sumber menunjuk Surah Al-Baqarah ayat 2–3. Hubungan ayat tersebut dengan rumusan tujuan kemaslahatan dalam soal perlu diverifikasi kembali."
+        },
+        {
+          "id": "b1-18",
+          "tanya": "Pandangan yang menyatakan bahwa tauhid (Islam) telah menyatu dengan fitrah manusia terdapat dalam Surah ....",
+          "opsi": [
+            "An-Nur ayat 11–18",
+            "Al-Qalam ayat 4",
+            "Al-An'am ayat 38",
+            "Al-A'raf ayat 7"
+          ],
+          "kunci": 3,
+          "jelas": "Tauhid berkaitan dengan fitrah manusia untuk mengakui keesaan Allah. Ayat yang secara langsung menjelaskan fitrah beragama adalah Surah Ar-Rum ayat 30, sehingga kunci sumber perlu ditinjau."
+        },
+        {
+          "id": "b1-19",
+          "tanya": "Fitrah dalam hubungannya dengan syahadat merupakan ....",
+          "opsi": [
+            "Kemampuan yang telah Allah ciptakan dalam diri manusia untuk mengenal Allah",
+            "Kemampuan untuk berinteraksi dengan sesama manusia",
+            "Kemampuan sebagai khalifah di bumi",
+            "Kemampuan untuk berbuat baik"
+          ],
+          "kunci": 0,
+          "jelas": "Fitrah dalam kaitannya dengan syahadat merupakan potensi dasar manusia untuk mengenal dan mengakui Allah."
+        },
+        {
+          "id": "b1-20",
+          "tanya": "Pernyataan \"Shibghah Allah, dan siapakah yang lebih baik shibghah-nya daripada Allah? Dan hanya kepada-Nya kami menyembah\" terdapat dalam Surah ....",
+          "opsi": [
+            "An-Nur ayat 11–18",
+            "Al-Baqarah ayat 138",
+            "Al-An'am ayat 38",
+            "Al-A'raf ayat 127"
+          ],
+          "kunci": 1,
+          "jelas": "[KUNCI DIKOREKSI] Kunci sumber A diubah menjadi B: kutipan shibghah Allah ada di Al-Baqarah ayat 138 (pilihan B). Kutipan shibghah Allah sebenarnya terdapat dalam Surah Al-Baqarah ayat 138, yaitu pilihan B. Kunci sumber A tidak sesuai dengan rujukan ayat."
+        },
+        {
+          "id": "b1-21",
+          "tanya": "Kebebasan manusia mengandung makna tanggung jawab. Petunjuk mengenai hal tersebut terdapat dalam ....",
+          "opsi": [
+            "An-Nur ayat 11–18",
+            "Al-Qalam ayat 4",
+            "Al-An'am ayat 38",
+            "Al-Ahzab ayat 72"
+          ],
+          "kunci": 3,
+          "jelas": "Surah Al-Ahzab ayat 72 menjelaskan amanah yang dipikul manusia, yang menunjukkan adanya tanggung jawab besar."
+        }
+      ]
+    },
+    {
+      "id": "bab2",
+      "judul": "Bab 2. Hakikat Manusia, Fitrah, dan Kehidupan",
+      "soal": [
+        {
+          "id": "b2-1",
+          "tanya": "Tujuan menjelaskan asal kejadian manusia dalam Al-Qur'an adalah menggambarkan ....",
+          "opsi": [
+            "Agar manusia menyadari kebesaran dan kemahakuasaan Allah",
+            "Manusia dibuat dari tanah dan nantinya akan kembali menjadi tanah",
+            "Unsur-unsur jasmaniah manusia terbuat dari unsur zat yang terdapat dalam tanah",
+            "Manusia memerlukan dan menyenangi tanah sebagai lahan hidupnya"
+          ],
+          "kunci": 2,
+          "jelas": "Penjelasan penciptaan manusia dari tanah menunjukkan bahwa unsur jasmaniah manusia berasal dari unsur-unsur bumi."
+        },
+        {
+          "id": "b2-2",
+          "tanya": "Manusia dalam pandangan kebendaan atau paham materialisme berbeda dengan pandangan Islam. Menurut Islam, manusia adalah ....",
+          "opsi": [
+            "Makhluk yang jujur dan disiplin",
+            "Makhluk Allah yang ditugasi untuk beribadah kepada-Nya",
+            "Makhluk Allah yang diturunkan ke dunia",
+            "Khalifah Allah sebagai pelaksana hukum Islam"
+          ],
+          "kunci": 1,
+          "jelas": "Manusia merupakan ciptaan Allah yang memiliki tujuan utama beribadah dan menjalankan tugas sebagai hamba-Nya."
+        },
+        {
+          "id": "b2-3",
+          "tanya": "Hak seseorang terhadap diri sendiri menurut Islam adalah ....",
+          "opsi": [
+            "Berbuat sesuai dengan peraturan yang ditetapkan negara",
+            "Memenuhi kebutuhan diri sendiri tanpa memperhatikan kepentingan orang lain",
+            "Tidak melanggar peraturan atau kebiasaan masyarakat",
+            "Memenuhi keinginan diri sendiri dengan tidak merugikan orang lain"
+          ],
+          "kunci": 3,
+          "jelas": "Manusia berhak memenuhi kebutuhannya, tetapi tetap harus memperhatikan batasan moral dan hak orang lain."
+        },
+        {
+          "id": "b2-4",
+          "tanya": "Bunuh diri dilarang oleh ajaran Islam dengan alasan ....",
+          "opsi": [
+            "Merugikan orang lain",
+            "Bersikap tanpa harapan atau frustrasi",
+            "Melanggar hak terhadap diri sendiri",
+            "Melawan takdir"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci sumber B; pilihan C juga berkaitan dengan perlindungan jiwa. Bunuh diri dilarang karena bertentangan dengan ketentuan Allah dan menunjukkan keputusasaan terhadap rahmat-Nya. Catatan: Kunci sumber perlu diperiksa karena pilihan C juga berkaitan dengan perlindungan jiwa."
+        },
+        {
+          "id": "b2-5",
+          "tanya": "Berikut ini adalah sebutan manusia dalam Al-Qur'an, kecuali ....",
+          "opsi": [
+            "Al-Insan",
+            "An-Naas",
+            "Al-Basyar",
+            "An-Nisyan"
+          ],
+          "kunci": 3,
+          "jelas": "Al-Insan, An-Naas, dan Al-Basyar merupakan istilah yang digunakan Al-Qur'an untuk menyebut manusia."
+        },
+        {
+          "id": "b2-6",
+          "tanya": "Hakikat manusia menurut Surah Al-Mu'minun ayat 12–14 adalah manusia merupakan ....",
+          "opsi": [
+            "Makhluk yang bersifat lahir dan gaib",
+            "Makhluk sempurna",
+            "Gumpalan daging",
+            "Makhluk yang berbentuk"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kesesuaian kunci sumber A dengan pilihan jawaban perlu diperiksa. Ayat tersebut menjelaskan proses penciptaan manusia secara bertahap hingga menjadi makhluk dengan bentuk dan struktur tubuh. Catatan: Kesesuaian kunci A dengan pilihan jawaban perlu diperiksa."
+        },
+        {
+          "id": "b2-7",
+          "tanya": "Pokok keutamaan hidup manusia yang tidak dimiliki hewan atau makhluk lainnya adalah ....",
+          "opsi": [
+            "Harta, keturunan, dan jiwa",
+            "Agama, akal, dan harta",
+            "Agama, akal, dan jiwa",
+            "Jiwa, akal, dan keturunan"
+          ],
+          "kunci": 2,
+          "jelas": "Agama, akal, dan jiwa merupakan unsur penting dalam kemaslahatan manusia. Catatan: Soal ini berasal dari kumpulan kedua dan memiliki materi serupa dengan soal 14; keduanya dipertahankan agar jumlah soal tetap 100."
+        },
+        {
+          "id": "b2-8",
+          "tanya": "Supaya manusia tidak keliru dalam mengaktualisasikan fitrahnya, Allah ....",
+          "opsi": [
+            "Menciptakan langit dan bumi",
+            "Mengutus para rasul dengan membawa wahyu Allah yang berisi tuntunan agama",
+            "Menciptakan manusia dan jin sebagai perwujudan kekuasaan-Nya di alam semesta",
+            "Menciptakan malaikat sebagai pengatur alam semesta"
+          ],
+          "kunci": 1,
+          "jelas": "[REKONSTRUKSI] Pilihan D tidak terbaca di naskah sumber; teks pilihan D ini adalah REKONSTRUKSI (pengecoh) dan harus dicocokkan dengan naskah asli. Para rasul diutus untuk menyampaikan wahyu dan petunjuk agama agar manusia menjalani kehidupan sesuai fitrahnya."
+        },
+        {
+          "id": "b2-9",
+          "tanya": "Salah satu ciri orang yang beriman kepada Allah adalah bertawakal kepada-Nya. Pengertian bertawakal kepada Allah dalam kaitannya dengan iman adalah ....",
+          "opsi": [
+            "Menerima dan menerapkan kepastian Allah",
+            "Menerima dan mengagumi pemberian dari Allah",
+            "Menerima dan menerapkan ajaran Allah",
+            "Mengakui dan membenarkan keputusan Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Tawakal berarti berserah diri kepada Allah setelah berusaha dan menerima ketetapan-Nya. Catatan: Soal ini merupakan pengulangan materi dari soal 3 dan tetap dipertahankan sebagai bagian dari kumpulan 100 soal."
+        }
+      ]
+    },
+    {
+      "id": "bab3",
+      "judul": "Bab 3. Islam sebagai Agama dan Pedoman Hidup",
+      "soal": [
+        {
+          "id": "b3-1",
+          "tanya": "Agama Islam menjadi pedoman hidup bagi manusia. Hakikat Islam sebagai pedoman hidup adalah ....",
+          "opsi": [
+            "Manusia tidak pantas menjadikan ajaran selain Islam sebagai panutan dalam kehidupan sehari-hari",
+            "Ajaran Islam menjadi pedoman hidup masyarakat",
+            "Manusia tidak perlu mencari kebenaran melalui akalnya semata karena nilai kebenarannya relatif",
+            "Nilai ajaran Islam lebih tinggi dan universal dibandingkan dengan nilai budaya manusia"
+          ],
+          "kunci": 3,
+          "jelas": "Ajaran Islam memiliki nilai universal yang menjadi pedoman kehidupan manusia dan tidak terbatas pada budaya tertentu."
+        },
+        {
+          "id": "b3-2",
+          "tanya": "Agama Islam sebagai pedoman hidup manusia merupakan suprasistem dalam bidang ....",
+          "opsi": [
+            "Syariah dan akhlak",
+            "Akidah, keimanan, syariah, dan akhlak",
+            "Akidah dan syariah",
+            "Akidah dan keimanan"
+          ],
+          "kunci": 1,
+          "jelas": "Islam mencakup akidah, keimanan, syariah, dan akhlak yang saling berkaitan dalam mengatur kehidupan manusia."
+        },
+        {
+          "id": "b3-3",
+          "tanya": "Manfaat agama Islam bagi manusia meliputi ....",
+          "opsi": [
+            "Informasi tentang alam gaib dan nyata serta fungsi masing-masing",
+            "Petunjuk tentang yang baik dan buruk, benar dan salah, serta perintah dan larangan",
+            "Informasi tentang makhluk, Khalik, alam gaib dan nyata, serta petunjuk tentang baik dan buruk",
+            "Informasi tentang makhluk dan Khalik serta hubungan antara keduanya"
+          ],
+          "kunci": 2,
+          "jelas": "Islam memberikan pengetahuan tentang Khalik, makhluk, alam gaib, alam nyata, serta pedoman membedakan kebaikan dan keburukan."
+        },
+        {
+          "id": "b3-4",
+          "tanya": "Tujuan hidup manusia menurut penegasan Allah adalah mengabdikan diri kepada-Nya. Pengertian mengabdikan diri kepada Allah adalah ....",
+          "opsi": [
+            "Bekerja di bidang profesi dalam rangka mengabdi kepada Allah",
+            "Tidak menjadikan materi sebagai tujuan hidup",
+            "Menuntut ilmu untuk diabdikan kepada Allah",
+            "Hidup dan mati manusia itu untuk Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Seluruh kehidupan manusia diarahkan untuk beribadah dan mengabdi kepada Allah."
+        },
+        {
+          "id": "b3-5",
+          "tanya": "Yang termasuk agama wahyu adalah ....",
+          "opsi": [
+            "Islam",
+            "Kristen",
+            "Yahudi",
+            "Hindu"
+          ],
+          "kunci": 0,
+          "jelas": "Islam merupakan agama wahyu yang ajarannya bersumber dari wahyu Allah yang disampaikan kepada Nabi Muhammad SAW."
+        },
+        {
+          "id": "b3-6",
+          "tanya": "Agama masih memiliki peranan besar bagi kehidupan manusia modern untuk menghindari krisis moral. Hal tersebut karena ajaran agama bersifat ....",
+          "opsi": [
+            "Relatif",
+            "Absolut",
+            "Bisa berubah",
+            "Dapat disesuaikan dengan perubahan"
+          ],
+          "kunci": 1,
+          "jelas": "[PERIKSA] Kunci sumber berbeda antara dua kumpulan soal (C dan B); dipakai B. Prinsip dasar ajaran agama dipandang tetap dan menjadi pedoman moral. Catatan: Kunci sumber untuk soal serupa pada kumpulan pertama adalah C dan pada kumpulan kedua adalah B; kunci di sini mengikuti kumpulan kedua."
+        },
+        {
+          "id": "b3-7",
+          "tanya": "Pernyataan berikut merupakan klasifikasi agama, kecuali ....",
+          "opsi": [
+            "Agama misionaris dan nonmisionaris",
+            "Agama samawi dan agama ardhi",
+            "Agama wahyu dan nonwahyu",
+            "Agama nabi dan agama manusia"
+          ],
+          "kunci": 3,
+          "jelas": "[REKONSTRUKSI] Pilihan B tidak terbaca di naskah sumber; teks pilihan B ini adalah REKONSTRUKSI dan harus dicocokkan dengan naskah asli. Klasifikasi agama dapat dibedakan berdasarkan penyebaran dan sumber ajarannya. Pilihan B tidak terbaca sehingga soal belum dapat diverifikasi sepenuhnya."
+        },
+        {
+          "id": "b3-8",
+          "tanya": "Agama yang benar dan diridai oleh Allah SWT adalah agama Islam. Hal tersebut termaktub dalam Surah ....",
+          "opsi": [
+            "An-Nur ayat 11–18",
+            "Ali 'Imran ayat 19 dan 85",
+            "Al-An'am ayat 38",
+            "Al-A'raf ayat 127"
+          ],
+          "kunci": 1,
+          "jelas": "Surah Ali 'Imran ayat 19 menyatakan bahwa agama di sisi Allah adalah Islam, sedangkan ayat 85 menegaskan bahwa agama selain Islam tidak diterima."
+        },
+        {
+          "id": "b3-9",
+          "tanya": "Dua perkara yang diwariskan Nabi Muhammad SAW dan apabila umat Islam berpegang teguh kepada keduanya akan memperoleh keselamatan adalah ....",
+          "opsi": [
+            "Al-Qur'an dan Sunnah",
+            "Segala bentuk perintah dan larangan",
+            "Keluarga dan para sahabatnya",
+            "Ilmu dan kekuasaan"
+          ],
+          "kunci": 0,
+          "jelas": "Al-Qur'an dan Sunnah merupakan dua sumber utama ajaran Islam yang menjadi pedoman umat Muslim."
+        },
+        {
+          "id": "b3-10",
+          "tanya": "Tidak semua hal yang dikerjakan Nabi Muhammad SAW menjadi sumber hukum. Berikut ini yang termasuk sumber hukum adalah ....",
+          "opsi": [
+            "Segala sesuatu yang dianjurkan Nabi SAW untuk dikerjakan",
+            "Segala sesuatu yang berasal dari Nabi dalam kedudukannya sebagai manusia biasa, seperti cara berjalan dan duduk",
+            "Segala sesuatu yang berasal dari Nabi yang semata-mata merupakan kebijaksanaan dalam masalah keduniaan",
+            "Segala sesuatu yang dilakukan Nabi dan dijelaskan oleh hukum syariat bahwa hal tersebut khusus berlaku bagi beliau sendiri"
+          ],
+          "kunci": 0,
+          "jelas": "Anjuran Nabi untuk melakukan suatu perbuatan merupakan bagian dari Sunnah yang dapat menjadi pedoman hukum bagi umat Islam."
+        },
+        {
+          "id": "b3-11",
+          "tanya": "Pernyataan \"Sesungguhnya agama yang diridai di sisi Allah hanyalah Islam\" terdapat dalam ....\n1. Al-Qur'an\n2. Al-Hadis\n3. Al-Kitab",
+          "opsi": [
+            "1) dan 2) benar",
+            "1) dan 3) benar",
+            "2) dan 3) benar",
+            "1), 2), dan 3) semuanya benar"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kunci sumber A; kutipan itu hanya ada di Al-Qur'an (Ali Imran ayat 19), sehingga kombinasi kunci perlu ditinjau. Kalimat tersebut merupakan bagian dari Al-Qur'an, tepatnya Surah Ali 'Imran ayat 19. Catatan: Jika pernyataan dimaknai sebagai kutipan langsung, hanya Al-Qur'an yang tepat; kombinasi kunci sumber perlu ditinjau."
+        },
+        {
+          "id": "b3-12",
+          "tanya": "Pernyataan \"Shibghah Allah, dan siapakah yang lebih baik shibghah-nya daripada Allah? Dan hanya kepada-Nya kami menyembah\" terdapat dalam Surah ....",
+          "opsi": [
+            "An-Nur ayat 11–18",
+            "Al-Baqarah ayat 138",
+            "Al-An'am ayat 38",
+            "Al-A'raf ayat 127"
+          ],
+          "kunci": 1,
+          "jelas": "[KUNCI DIKOREKSI] Kunci sumber A diubah menjadi B: kutipan shibghah Allah ada di Al-Baqarah ayat 138 (pilihan B). Kutipan tersebut sebenarnya terdapat dalam Surah Al-Baqarah ayat 138. Kunci sumber A tidak sesuai dengan rujukan ayat. Soal ini dipertahankan karena berasal dari kumpulan kedua."
+        }
+      ]
+    },
+    {
+      "id": "bab4",
+      "judul": "Bab 4. Hukum Islam, Syariah, dan Kemaslahatan",
+      "soal": [
+        {
+          "id": "b4-1",
+          "tanya": "Tujuan hukum (syariat) Islam bagi manusia adalah ....",
+          "opsi": [
+            "Mengatur tata hidup dan pergaulan manusia",
+            "Mencapai kebahagiaan manusia itu sendiri",
+            "Agar manusia dapat masuk surga",
+            "Agar menjadi muslim sejati"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kunci sumber A; pilihan B juga mencerminkan tujuan syariat. Syariat mengatur kehidupan dan hubungan antarmanusia agar tercipta ketertiban serta kemaslahatan. Catatan: Kunci sumber perlu dicocokkan kembali dengan materi karena pilihan B juga mencerminkan tujuan umum syariat."
+        },
+        {
+          "id": "b4-2",
+          "tanya": "Hak manusia atas harta adalah ....",
+          "opsi": [
+            "Kewajiban yang ditunaikan terhadap harta yang dimiliki",
+            "Memelihara dan memanfaatkan harta di jalan Allah",
+            "Mempergunakan harta secara patut",
+            "Hak yang terdapat pada harta tersebut"
+          ],
+          "kunci": 1,
+          "jelas": "Harta merupakan amanah yang harus dijaga dan dimanfaatkan untuk kepentingan yang baik sesuai ketentuan Islam."
+        },
+        {
+          "id": "b4-3",
+          "tanya": "Dalam rangka memenuhi hak Allah, manusia berkewajiban ....",
+          "opsi": [
+            "Mengamalkan agama Allah",
+            "Bertakwa dan tidak menyekutukan-Nya",
+            "Mengimani dan tidak menyekutukan Allah",
+            "Berbakti kepada Allah"
+          ],
+          "kunci": 1,
+          "jelas": "Hak Allah diwujudkan melalui ketakwaan, ketaatan, dan menjaga kemurnian tauhid."
+        },
+        {
+          "id": "b4-4",
+          "tanya": "Khalifah Allah adalah ....",
+          "opsi": [
+            "Hamba yang taat kepada Allah",
+            "Penguasa dan pengatur bumi untuk dan atas nama Allah",
+            "Mukmin dan muslim yang konsekuen",
+            "Rasul Allah di dunia"
+          ],
+          "kunci": 1,
+          "jelas": "Khalifah Allah adalah manusia yang diberi amanah untuk mengelola dan memakmurkan bumi sesuai ketentuan-Nya."
+        },
+        {
+          "id": "b4-5",
+          "tanya": "Wajib, sunah, makruh, haram, dan mubah merupakan garis besar hukum ....",
+          "opsi": [
+            "Agama",
+            "Syariat",
+            "Peradilan",
+            "Syara'"
+          ],
+          "kunci": 1,
+          "jelas": "Kelima kategori tersebut merupakan pembagian hukum taklifi dalam syariat Islam."
+        },
+        {
+          "id": "b4-6",
+          "tanya": "Yang dimaksud dengan prinsip hukum Islam sebagaimana dijelaskan para ulama adalah ....",
+          "opsi": [
+            "Kebenaran universal yang inheren di dalam hukum Islam dan menjadi titik tolak pelaksanaan serta pembinaannya",
+            "Aturan-aturan yang ditetapkan para ulama berdasarkan dalil",
+            "Kaidah-kaidah pokok dalam hukum",
+            "Hukum-hukum yang mengikat manusia berdasarkan aturan dalam Al-Qur'an"
+          ],
+          "kunci": 0,
+          "jelas": "Prinsip hukum Islam merupakan nilai dasar universal yang menjadi landasan pelaksanaan dan pengembangan hukum Islam."
+        },
+        {
+          "id": "b4-7",
+          "tanya": "Suatu kaidah berbunyi, \"Masalah-masalah dalam hukum Islam apabila telah menyempit maka menjadi meluas, dan apabila telah meluas maka kembali menyempit,\" merupakan cabang dari prinsip utama hukum Islam, yaitu ....",
+          "opsi": [
+            "Prinsip amar ma'ruf nahi munkar",
+            "Prinsip toleransi",
+            "Prinsip keadilan",
+            "Prinsip tauhid"
+          ],
+          "kunci": 3,
+          "jelas": "[PERIKSA] Atribusi kaidah ke prinsip pada kunci sumber perlu diperiksa pada bahan ajar. Kunci sumber mengaitkan kaidah tersebut dengan prinsip tauhid. Atribusi kaidah perlu diperiksa kembali pada bahan ajar."
+        },
+        {
+          "id": "b4-8",
+          "tanya": "Prinsip hukum Islam yang menyatakan bahwa sesama warga masyarakat harus saling menolong demi tercapainya kemaslahatan bersama merupakan penjelasan dari ....",
+          "opsi": [
+            "Prinsip tolong-menolong",
+            "Prinsip tauhid",
+            "Prinsip persamaan",
+            "Prinsip keadilan"
+          ],
+          "kunci": 0,
+          "jelas": "Prinsip tolong-menolong mengajarkan manusia saling membantu dalam kebaikan demi kemaslahatan bersama."
+        },
+        {
+          "id": "b4-9",
+          "tanya": "Pokok keutamaan hidup manusia yang tidak dimiliki hewan atau makhluk lainnya adalah ....",
+          "opsi": [
+            "Harta, keturunan, dan jiwa",
+            "Agama, akal, dan harta",
+            "Agama, akal, dan jiwa",
+            "Jiwa, akal, dan keturunan"
+          ],
+          "kunci": 2,
+          "jelas": "Agama, akal, dan jiwa termasuk unsur penting yang harus dijaga untuk mewujudkan kemaslahatan manusia. Catatan: Soal serupa telah muncul pada soal 14 dan dipertahankan agar seluruh soal sumber tetap terakomodasi."
+        },
+        {
+          "id": "b4-10",
+          "tanya": "Salah satu cabang prinsip tauhid menyatakan bahwa beban hukum yang ditetapkan Allah bertujuan untuk kemaslahatan manusia, bukan untuk kepentingan Allah. Hal tersebut didasarkan pada ayat ....",
+          "opsi": [
+            "Surah Al-Ma'idah ayat 3",
+            "Surah Al-Hujurat ayat 13",
+            "Surah Al-Baqarah ayat 2–3",
+            "Surah Al-Isra' ayat 7"
+          ],
+          "kunci": 2,
+          "jelas": "Kunci sumber menunjuk Surah Al-Baqarah ayat 2–3. Hubungan ayat dengan rumusan soal perlu dicocokkan kembali dengan materi."
+        },
+        {
+          "id": "b4-11",
+          "tanya": "Hak seseorang terhadap orang lain menurut Islam adalah ....",
+          "opsi": [
+            "Bersikap jujur dan disiplin",
+            "Berusaha dan berikhtiar",
+            "Beribadah kepada Allah",
+            "Menerima takdir Allah"
+          ],
+          "kunci": 0,
+          "jelas": "Kejujuran dan kedisiplinan merupakan perilaku penting dalam hubungan antarmanusia. Catatan: Rumusan pilihan jawaban tidak secara langsung menjelaskan konsep hak sehingga perlu diperiksa."
+        },
+        {
+          "id": "b4-12",
+          "tanya": "Prinsip tanggung jawab menurut pandangan agama Islam adalah sebagai berikut, kecuali ....",
+          "opsi": [
+            "Prinsip amanah",
+            "Prinsip iman",
+            "Prinsip prestasi",
+            "Prinsip kekeluargaan"
+          ],
+          "kunci": 3,
+          "jelas": "Kunci sumber menyatakan prinsip kekeluargaan sebagai pengecualian. Klasifikasi prinsip dalam soal perlu dicocokkan dengan bahan ajar."
+        }
+      ]
+    },
+    {
+      "id": "bab5",
+      "judul": "Bab 5. Masyarakat Madani, Keadilan, dan Hak Asasi Manusia",
+      "soal": [
+        {
+          "id": "b5-1",
+          "tanya": "Yang bukan merupakan pengertian egalitarianisme adalah ....",
+          "opsi": [
+            "Semua orang memiliki kedudukan yang sama di hadapan hukum",
+            "Suatu paham yang memberikan keistimewaan kepada ras tertentu",
+            "Perbedaan genealogis bukan menjadi ukuran dalam menegakkan hukum",
+            "Tidak ada diskriminasi berdasarkan etnis, agama, suku, dan sebagainya"
+          ],
+          "kunci": 1,
+          "jelas": "Egalitarianisme menekankan persamaan hak dan kedudukan. Keistimewaan berdasarkan ras bertentangan dengan prinsip tersebut."
+        },
+        {
+          "id": "b5-2",
+          "tanya": "Masyarakat Madani yang dibangun Nabi merupakan alternatif bagi masyarakat jahiliah. Dalam dunia modern, masyarakat Madani merupakan alternatif bagi bentuk pemerintahan ....",
+          "opsi": [
+            "Legalisme",
+            "Demokrasi",
+            "Parlementer",
+            "Otoriter"
+          ],
+          "kunci": 3,
+          "jelas": "Masyarakat Madani menekankan keadilan, kesetaraan, kebebasan, dan partisipasi masyarakat sebagai alternatif terhadap pemerintahan otoriter."
+        },
+        {
+          "id": "b5-3",
+          "tanya": "Sikap menerima dengan tulus bahwa kemajemukan merupakan bagian dari hukum Allah dan karunia-Nya adalah ....",
+          "opsi": [
+            "Pluralisme",
+            "Toleransi",
+            "Otoritarianisme",
+            "Egalitarianisme"
+          ],
+          "kunci": 0,
+          "jelas": "Pluralisme merupakan pengakuan dan penerimaan terhadap keberagaman dalam kehidupan masyarakat."
+        },
+        {
+          "id": "b5-4",
+          "tanya": "Hukum harus ditegakkan atas semua warga tanpa pandang bulu. Hal ini merupakan perwujudan prinsip ....",
+          "opsi": [
+            "Supremasi hukum",
+            "Liberalisme",
+            "Keadilan",
+            "Legalisme"
+          ],
+          "kunci": 0,
+          "jelas": "Supremasi hukum berarti hukum berlaku bagi seluruh warga tanpa diskriminasi atau perlakuan istimewa."
+        },
+        {
+          "id": "b5-5",
+          "tanya": "Ayat berikut berkenaan dengan prinsip masyarakat Madani:\nوَلَوْ شَاءَ رَبُّكَ لَآمَنَ مَنْ فِي الْأَرْضِ كُلُّهُمْ جَمِيعًا أَفَأَنْتَ تُكْرِهُ النَّاسَ حَتَّىٰ يَكُونُوا مُؤْمِنِينَ\nPrinsip yang dimaksud adalah ....",
+          "opsi": [
+            "Liberalisme",
+            "Egalitarianisme",
+            "Pluralisme",
+            "Otoritarianisme"
+          ],
+          "kunci": 2,
+          "jelas": "Ayat tersebut menjelaskan bahwa keimanan tidak dapat dipaksakan. Hal ini berkaitan dengan pengakuan terhadap keberagaman keyakinan."
+        },
+        {
+          "id": "b5-6",
+          "tanya": "Menurut Surah Al-Hujurat ayat 10, sesungguhnya orang-orang muslim adalah ....",
+          "opsi": [
+            "Bersaudara",
+            "Orang yang adil",
+            "Orang bertakwa",
+            "Orang yang menegakkan kebenaran"
+          ],
+          "kunci": 0,
+          "jelas": "Surah Al-Hujurat ayat 10 menegaskan persaudaraan orang-orang beriman dan perintah mendamaikan pihak yang berselisih."
+        },
+        {
+          "id": "b5-7",
+          "tanya": "Ciri masyarakat menurut Soerjono Soekanto adalah bahwa dalam diri manusia terdapat keinginan untuk menjadi satu dengan manusia lainnya dan keinginan untuk ....",
+          "opsi": [
+            "Beradaptasi dengan masyarakat di lingkungannya",
+            "Menjadi satu dengan alam sekitarnya",
+            "Mencari kehidupan yang layak",
+            "Berkarya dan berbudaya"
+          ],
+          "kunci": 1,
+          "jelas": "Manusia memiliki dorongan untuk hidup bersama sesama manusia dan menyatu dengan lingkungan alamnya."
+        },
+        {
+          "id": "b5-8",
+          "tanya": "Asal-usul masyarakat menunjukkan fitrah manusia sebagai makhluk sosial. Hal tersebut terdapat dalam Al-Qur'an Surah ....",
+          "opsi": [
+            "Ali 'Imran ayat 195",
+            "Al-Furqan ayat 45",
+            "Az-Zukhruf ayat 32",
+            "At-Takatsur ayat 1–8"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Hubungan Ali Imran ayat 195 dengan asal-usul masyarakat perlu diverifikasi. Kunci sumber menunjuk Surah Ali 'Imran ayat 195. Hubungan ayat tersebut dengan asal-usul masyarakat perlu diverifikasi kembali."
+        },
+        {
+          "id": "b5-9",
+          "tanya": "Pernyataan \"Sesungguhnya semulia-mulianya kalian di sisi Allah adalah yang paling bertakwa di antara kalian\" merupakan ....",
+          "opsi": [
+            "Ayat penjelasan",
+            "Ayat tuntutan",
+            "Ayat larangan",
+            "Ayat perintah"
+          ],
+          "kunci": 0,
+          "jelas": "Pernyataan tersebut menjelaskan bahwa kemuliaan manusia di hadapan Allah ditentukan oleh ketakwaan, bukan status sosial atau keturunan."
+        },
+        {
+          "id": "b5-10",
+          "tanya": "Supremasi hukum adalah menempatkan hukum di atas segalanya dan menegakkannya tanpa memandang ....",
+          "opsi": [
+            "Pelanggaran terhadap kebiasaan",
+            "Pelanggaran terhadap perundang-undangan",
+            "Pelanggaran terhadap norma adat",
+            "Pelanggaran terhadap konvensi"
+          ],
+          "kunci": 1,
+          "jelas": "Supremasi hukum mengharuskan setiap orang tunduk pada peraturan perundang-undangan tanpa pengecualian."
+        },
+        {
+          "id": "b5-11",
+          "tanya": "Ketidakadilan merupakan bentuk penyelewengan dari hakikat kemanusiaan yang dikutuk keras oleh Al-Qur'an. Ekspresi ketidakadilan tersebut tersirat dalam surah ....",
+          "opsi": [
+            "At-Takatsur dan Al-Humazah",
+            "An-Nisa' dan Al-Ma'idah",
+            "Al-Hujurat dan Yunus",
+            "At-Takatsur dan Al-Ma'idah"
+          ],
+          "kunci": 0,
+          "jelas": "Surah At-Takatsur dan Al-Humazah mengingatkan manusia terhadap keserakahan, penumpukan kekayaan, serta perilaku merendahkan orang lain."
+        },
+        {
+          "id": "b5-12",
+          "tanya": "Keadilan sosial adalah tindakan adil terhadap setiap orang dan ....",
+          "opsi": [
+            "Membebaskan segala bentuk penindasan",
+            "Memperlakukan semua orang secara sama",
+            "Melindungi kehidupan",
+            "Menjamin kehidupan yang layak"
+          ],
+          "kunci": 0,
+          "jelas": "Keadilan sosial menuntut penghapusan penindasan dan perlakuan sewenang-wenang."
+        },
+        {
+          "id": "b5-13",
+          "tanya": "Dalam perspektif Al-Qur'an, Pancasila merupakan kalimat sawa di antara berbagai kelompok di Indonesia. Pendapat tersebut dikemukakan oleh ....",
+          "opsi": [
+            "Nurcholish Madjid",
+            "Amien Rais",
+            "Mukti Ali",
+            "Syafi'i Ma'arif"
+          ],
+          "kunci": 0,
+          "jelas": "Nurcholish Madjid dikenal dengan pemikiran mengenai titik temu atau kalimat sawa sebagai dasar persatuan di tengah keberagaman."
+        },
+        {
+          "id": "b5-14",
+          "tanya": "Pesan penting Rasulullah SAW tentang hak asasi manusia dikemukakan pada peristiwa ....",
+          "opsi": [
+            "Hijrah",
+            "Isra Mikraj",
+            "Menerima wahyu pertama",
+            "Haji Wada"
+          ],
+          "kunci": 3,
+          "jelas": "[KUNCI DIKOREKSI] Kunci sumber C diubah menjadi D: pesan hak asasi manusia disampaikan pada khotbah Haji Wada (pilihan D). Khotbah Haji Wada memuat pesan penting mengenai kehormatan, hak, dan keselamatan manusia. Dengan demikian, pilihan D lebih sesuai dengan materi sejarah."
+        },
+        {
+          "id": "b5-15",
+          "tanya": "Dalam Surah Al-Hujurat ayat 11 dan 12 terdapat kode etik warga masyarakat muslim, di antaranya sebagai berikut, kecuali ....",
+          "opsi": [
+            "Tidak boleh saling melecehkan dan menghina",
+            "Sesama orang beriman tidak boleh saling berprasangka buruk",
+            "Menegakkan perdamaian",
+            "Orang yang lebih muda harus mengikuti pendapat orang yang lebih tua"
+          ],
+          "kunci": 3,
+          "jelas": "Ayat tersebut melarang penghinaan, prasangka buruk, mencari kesalahan, dan menggunjing. Tidak ada ketentuan khusus tentang kewajiban mengikuti pendapat orang yang lebih tua."
+        },
+        {
+          "id": "b5-16",
+          "tanya": "Persatuan dan persamaan dalam Islam tidak berarti setiap orang harus dipaksa menjadi sama atau seragam. Pernyataan yang tidak sesuai dengan prinsip tersebut adalah ....",
+          "opsi": [
+            "Memeluk dan menjalankan keyakinan agama masing-masing",
+            "Mengeluarkan pendapat dalam musyawarah bersama",
+            "Melaksanakan aktivitas positif sesuai profesi dan kompetensinya",
+            "Melaksanakan apa pun yang menjadi kehendaknya"
+          ],
+          "kunci": 3,
+          "jelas": "Kebebasan dalam Islam dibatasi oleh ketentuan agama dan hak orang lain. Seseorang tidak dapat bertindak semaunya."
+        }
+      ]
+    },
+    {
+      "id": "bab6",
+      "judul": "Bab 6. Akhlak, Etika, dan Moral",
+      "soal": [
+        {
+          "id": "b6-1",
+          "tanya": "Ilmu yang mempelajari baik dan buruk disebut etika. Karena itu, etika dapat dikatakan sebagai ....",
+          "opsi": [
+            "Sesuatu yang baik dan buruk",
+            "Kajian sistematis tentang baik dan buruk",
+            "Masalah-masalah baik dan buruk",
+            "Teori tentang moral"
+          ],
+          "kunci": 1,
+          "jelas": "Etika merupakan kajian sistematis mengenai nilai dan prinsip yang digunakan untuk menilai baik atau buruknya perilaku manusia."
+        },
+        {
+          "id": "b6-2",
+          "tanya": "Pernyataan \"Sumber kebaikan dan keburukan adalah kebahagiaan\" dikemukakan oleh aliran ....",
+          "opsi": [
+            "Egoistik hedonisme",
+            "Tradisionalisme",
+            "Rasionalisme",
+            "Egoisme"
+          ],
+          "kunci": 0,
+          "jelas": "Egoistik hedonisme memandang kebahagiaan atau kenikmatan pribadi sebagai dasar penilaian baik dan buruk."
+        },
+        {
+          "id": "b6-3",
+          "tanya": "Kebaikan dan keburukan diukur berdasarkan kebahagiaan menurut kebanyakan orang yang merasakannya. Aliran ini disebut hedonisme universal. Salah seorang penggagasnya adalah ....",
+          "opsi": [
+            "Plato",
+            "Epicurus",
+            "John Stuart Mill (1806–1873)",
+            "Aristoteles"
+          ],
+          "kunci": 2,
+          "jelas": "John Stuart Mill merupakan tokoh utilitarianisme yang menilai tindakan berdasarkan kebahagiaan atau manfaat bagi sebanyak mungkin orang."
+        },
+        {
+          "id": "b6-4",
+          "tanya": "Sumber utama moral dalam Islam adalah ....",
+          "opsi": [
+            "Akal",
+            "Sunnah",
+            "Al-Qur'an",
+            "Tradisi"
+          ],
+          "kunci": 2,
+          "jelas": "Al-Qur'an merupakan sumber utama ajaran Islam dan pedoman nilai moral bagi umat Muslim."
+        },
+        {
+          "id": "b6-5",
+          "tanya": "Budi pekerti yang berlandaskan nilai-nilai iman, Islam, dan ihsan merupakan definisi dari ....",
+          "opsi": [
+            "Muhsin",
+            "Akhlakul karimah",
+            "Ihsan",
+            "Akhlak"
+          ],
+          "kunci": 1,
+          "jelas": "Akhlakul karimah merupakan perilaku terpuji yang mencerminkan keimanan, ketaatan, dan kesadaran untuk berbuat baik."
+        },
+        {
+          "id": "b6-6",
+          "tanya": "Salah satu ciri orang yang beriman kepada Allah adalah bertawakal kepada-Nya. Pengertian bertawakal kepada Allah dalam kaitannya dengan iman adalah ....",
+          "opsi": [
+            "Menerima dan menerapkan kepastian Allah",
+            "Menerima dan mengagumi pemberian Allah",
+            "Menerima dan menerapkan ajaran Allah",
+            "Mengakui dan membenarkan keputusan Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Tawakal merupakan sikap berserah diri kepada Allah setelah melakukan usaha. Soal ini mengulang materi soal 3 dan tetap dipertahankan."
+        },
+        {
+          "id": "b6-7",
+          "tanya": "Allah tidak melihat rupa manusia, baik tampan maupun jelek, serta tidak melihat materi yang dimiliki, baik kaya maupun miskin. Akan tetapi, yang dilihat Allah adalah ....",
+          "opsi": [
+            "Amal ibadah",
+            "Sikap baik",
+            "Tingkah laku",
+            "Kesempatan"
+          ],
+          "kunci": 0,
+          "jelas": "Kemuliaan manusia tidak ditentukan oleh penampilan atau kekayaan, melainkan oleh ketakwaan dan amal perbuatannya."
+        },
+        {
+          "id": "b6-8",
+          "tanya": "Islam sangat menekankan agar manusia bersikap jujur. Ayat yang memerintahkan manusia untuk bersikap jujur adalah ....",
+          "opsi": [
+            "Surah Al-Ahzab ayat 70",
+            "Surah Al-Baqarah ayat 28",
+            "Surah Ali 'Imran ayat 110",
+            "Surah Al-Isra' ayat 84"
+          ],
+          "kunci": 0,
+          "jelas": "Surah Al-Ahzab ayat 70 memerintahkan orang beriman untuk bertakwa dan mengucapkan perkataan yang benar (qaulan sadida)."
+        },
+        {
+          "id": "b6-9",
+          "tanya": "Salah satu ciri orang yang beriman kepada Allah adalah bertawakal kepada-Nya. Pengertian bertawakal kepada Allah dalam kaitannya dengan iman adalah ....",
+          "opsi": [
+            "Menerima dan menerapkan kepastian Allah",
+            "Menerima dan mengagumi pemberian Allah",
+            "Menerima dan menerapkan ajaran Allah",
+            "Mengakui dan membenarkan keputusan Allah"
+          ],
+          "kunci": 3,
+          "jelas": "Tawakal berarti menyerahkan hasil suatu urusan kepada Allah setelah berusaha. Soal ini merupakan pengulangan dari materi soal 3 dan 76."
+        },
+        {
+          "id": "b6-10",
+          "tanya": "Bunuh diri dilarang oleh ajaran Islam dengan alasan ....",
+          "opsi": [
+            "Merugikan orang lain",
+            "Bersikap tanpa harapan atau frustrasi",
+            "Melanggar hak terhadap diri sendiri",
+            "Melawan takdir"
+          ],
+          "kunci": 1,
+          "jelas": "Bunuh diri dilarang karena bertentangan dengan ketentuan Allah dan menunjukkan keputusasaan terhadap rahmat-Nya. Soal ini mengulang materi soal 25."
+        }
+      ]
+    },
+    {
+      "id": "bab7",
+      "judul": "Bab 7. Ilmu Pengetahuan, Budaya Akademik, dan Etos Kerja",
+      "soal": [
+        {
+          "id": "b7-1",
+          "tanya": "Fungsi ilmu pengetahuan dalam hubungannya dengan iman adalah ....",
+          "opsi": [
+            "Penjabaran cara melaksanakan keimanan dalam kehidupan sehari-hari",
+            "Menjelaskan pentingnya keimanan bagi kehidupan manusia",
+            "Menanamkan keimanan",
+            "Petunjuk jalan yang membimbing ke arah keimanan"
+          ],
+          "kunci": 3,
+          "jelas": "Ilmu pengetahuan dapat membantu manusia memahami tanda-tanda kebesaran Allah dan membimbingnya menuju keimanan."
+        },
+        {
+          "id": "b7-2",
+          "tanya": "Menurut pandangan Islam, ilmu mencakup ....",
+          "opsi": [
+            "Ilmu Allah yang disampaikan kepada manusia melalui Al-Qur'an dan As-Sunnah, pengetahuan (knowledge), serta ilmu (science)",
+            "Ilmu Allah yang disampaikan melalui Al-Qur'an dan As-Sunnah",
+            "Ilmu Allah yang disampaikan melalui Al-Qur'an",
+            "Pengetahuan dan ilmu"
+          ],
+          "kunci": 0,
+          "jelas": "Konsep ilmu dalam Islam mencakup wahyu melalui Al-Qur'an dan As-Sunnah serta pengetahuan dan ilmu pengetahuan yang dikembangkan manusia."
+        },
+        {
+          "id": "b7-3",
+          "tanya": "Seni Islam dijelaskan oleh Muhammad Quthb dalam buku Manhaj At-Tarbiyah Al-Islamiyah sebagai ....",
+          "opsi": [
+            "Ekspresi keindahan wujud dari sisi alam, kehidupan, dan manusia",
+            "Ekspresi keindahan wujud berdasarkan pandangan Islam tentang alam, kehidupan, dan manusia yang mengantarkan pada pertemuan sempurna antara kebenaran dan keindahan",
+            "Ekspresi menuju pertemuan sempurna antara kebenaran dan keindahan",
+            "Ekspresi yang mengantarkan menuju pertemuan sempurna antara kebenaran dan keindahan"
+          ],
+          "kunci": 1,
+          "jelas": "Seni Islam merupakan ekspresi keindahan yang berlandaskan pandangan Islam dan menghubungkan nilai kebenaran dengan keindahan."
+        },
+        {
+          "id": "b7-4",
+          "tanya": "Padanan kata amal dalam bahasa Indonesia adalah ....",
+          "opsi": [
+            "Bekerja",
+            "Berpikir",
+            "Beribadah",
+            "Berzikir"
+          ],
+          "kunci": 0,
+          "jelas": "Amal secara umum berarti perbuatan atau pekerjaan yang dilakukan manusia."
+        },
+        {
+          "id": "b7-5",
+          "tanya": "Tuntutan mengamalkan ilmu pengetahuan maupun kegiatan muamalah sebagai amal saleh dijelaskan dalam Al-Qur'an Surah ....",
+          "opsi": [
+            "Al-Ma'idah ayat 1–3",
+            "Al-'Ashr ayat 1–3",
+            "Al-Anbiya ayat 1–3",
+            "Al-Baqarah ayat 1–3"
+          ],
+          "kunci": 1,
+          "jelas": "Surah Al-'Ashr ayat 1–3 menekankan iman, amal saleh, saling menasihati dalam kebenaran, dan kesabaran."
+        },
+        {
+          "id": "b7-6",
+          "tanya": "Ungkapan Al-ilmu bila amalin kasajarin bila tsamarin memiliki arti ....",
+          "opsi": [
+            "Ilmu yang diamalkan bagaikan pohon yang berbuah",
+            "Ilmu yang tidak diamalkan bagaikan pohon yang berbuah",
+            "Ilmu yang tidak diamalkan bagaikan pohon yang tidak berbuah",
+            "Ilmu yang diamalkan bagaikan pohon yang tidak berbuah"
+          ],
+          "kunci": 2,
+          "jelas": "Ungkapan tersebut berarti ilmu yang tidak diamalkan ibarat pohon yang tidak menghasilkan buah."
+        },
+        {
+          "id": "b7-7",
+          "tanya": "Tiga tahapan yang diajarkan Al-Qur'an dalam Surah An-Nahl ayat 125 untuk mengajak manusia ke jalan Allah adalah ....",
+          "opsi": [
+            "Dengan diplomasi, perdagangan, dan perang",
+            "Dengan hikmah, nasihat yang baik, dan argumentasi dengan cara yang lebih baik",
+            "Dengan membaca ayat Al-Qur'an, terjemahan, dan tafsirnya",
+            "Dengan perkawinan, perdagangan, dan perdamaian"
+          ],
+          "kunci": 1,
+          "jelas": "Surah An-Nahl ayat 125 mengajarkan dakwah melalui hikmah, nasihat yang baik, dan diskusi dengan cara terbaik."
+        },
+        {
+          "id": "b7-8",
+          "tanya": "Muslim yang memiliki budaya akademik harus menggabungkan tiga unsur, yaitu ....",
+          "opsi": [
+            "Gelar yang banyak, sering berhaji, dan rajin salat",
+            "Kecerdasan akal, iman yang kokoh, dan hati yang tunduk kepada Allah SWT",
+            "Amal saleh, rajin beribadah, dan pendidikan yang tinggi",
+            "Jabatan tinggi, harta banyak, dan status sosial mapan"
+          ],
+          "kunci": 1,
+          "jelas": "Budaya akademik dalam Islam menggabungkan kecerdasan intelektual, kekuatan iman, dan ketundukan hati kepada Allah."
+        },
+        {
+          "id": "b7-9",
+          "tanya": "Karakteristik seorang muslim yang berbudaya akademik dijelaskan dalam Al-Qur'an pada ....",
+          "opsi": [
+            "Surah Al-Baqarah ayat 30",
+            "Surah Ali 'Imran ayat 191–193",
+            "Surah Al-Baqarah ayat 170–173",
+            "Surah Ali 'Imran ayat 91–93"
+          ],
+          "kunci": 1,
+          "jelas": "Surah Ali 'Imran ayat 191–193 menjelaskan karakteristik ulul albab yang senantiasa mengingat Allah dan memikirkan penciptaan alam semesta."
+        },
+        {
+          "id": "b7-10",
+          "tanya": "Selain didorong untuk mencari dan menggunakan ilmu, manusia juga diwajibkan menyebarluaskan ilmu. Hal ini terdapat dalam Al-Qur'an Surah ....",
+          "opsi": [
+            "At-Taubah ayat 122",
+            "Al-Baqarah ayat 122",
+            "Al-Ma'idah ayat 122",
+            "Ali 'Imran ayat 122"
+          ],
+          "kunci": 0,
+          "jelas": "Surah At-Taubah ayat 122 menjelaskan pentingnya memperdalam ilmu agama dan memberikan pemahaman kepada masyarakat."
+        },
+        {
+          "id": "b7-11",
+          "tanya": "Dalam Al-Qur'an terdapat sekitar 620 kata amal. Padanan kata amal adalah ....",
+          "opsi": [
+            "Berpikir",
+            "Bertahan",
+            "Berjanji",
+            "Bekerja"
+          ],
+          "kunci": 3,
+          "jelas": "[KUNCI DIKOREKSI] Kunci sumber A diubah menjadi D: padanan kata amal adalah bekerja/perbuatan (pilihan D). Amal berarti perbuatan atau tindakan nyata. Pilihan D lebih dekat dengan makna tersebut dibandingkan pilihan A, sehingga kunci sumber perlu diperiksa."
+        },
+        {
+          "id": "b7-12",
+          "tanya": "Budaya akademik dalam Islam mengandung arti ....",
+          "opsi": [
+            "Kebiasaan yang menyangkut masalah keilmuan dalam Islam",
+            "Kebiasaan tentang tata cara beribadah dalam Islam",
+            "Tradisi yang berkaitan dengan masalah ketuhanan",
+            "Tradisi yang berhubungan dengan masalah keimanan"
+          ],
+          "kunci": 0,
+          "jelas": "Budaya akademik merupakan kebiasaan yang berkaitan dengan pengembangan ilmu, pembelajaran, penelitian, dan pengamalan pengetahuan."
+        },
+        {
+          "id": "b7-13",
+          "tanya": "Berpikir rasional merupakan ciri utama ajaran Islam. Pernyataan Al-Qur'an yang menunjukkan penggunaan tradisi keilmuan dan rasionalitas terdapat dalam Surah ....",
+          "opsi": [
+            "Al-Qalam ayat 4",
+            "Al-Fatihah ayat 2",
+            "Al-'Alaq ayat 5",
+            "Al-Baqarah ayat 111"
+          ],
+          "kunci": 0,
+          "jelas": "[PERIKSA] Kunci sumber A; Al-Qalam ayat 4 membahas akhlak Rasulullah, bukan rasionalitas. Keterkaitannya perlu diverifikasi. Kunci sumber menunjuk Al-Qalam ayat 4, tetapi ayat tersebut membahas akhlak Rasulullah. Keterkaitannya dengan rasionalitas perlu diverifikasi."
+        },
+        {
+          "id": "b7-14",
+          "tanya": "Di antara ajaran Al-Qur'an agar seseorang memiliki etos kerja tinggi adalah bekerja sesuai kompetensi. Hal ini diisyaratkan dalam ....",
+          "opsi": [
+            "Surah Al-Baqarah ayat 28",
+            "Surah Ali 'Imran ayat 110",
+            "Surah Al-Isra' ayat 84",
+            "Surah Al-Jumu'ah ayat 9"
+          ],
+          "kunci": 2,
+          "jelas": "[KUNCI DIKOREKSI] Kunci sumber A diubah menjadi C: Al-Isra ayat 84 tentang berbuat menurut keadaan/kemampuan (pilihan C). Surah Al-Isra' ayat 84 menjelaskan bahwa setiap orang berbuat menurut keadaan atau kemampuannya. Dengan demikian, pilihan C lebih sesuai dengan isi soal daripada kunci sumber."
+        },
+        {
+          "id": "b7-15",
+          "tanya": "Ayat yang memerintahkan manusia untuk bersikap jujur adalah ....",
+          "opsi": [
+            "Surah Al-Ahzab ayat 70",
+            "Surah Al-Baqarah ayat 28",
+            "Surah Ali 'Imran ayat 110",
+            "Surah Al-Isra' ayat 84"
+          ],
+          "kunci": 0,
+          "jelas": "Surah Al-Ahzab ayat 70 memerintahkan orang beriman untuk bertakwa dan mengucapkan perkataan yang benar."
+        },
+        {
+          "id": "b7-16",
+          "tanya": "Yang merupakan hikmah salat adalah membentuk sifat ....\n1. Disiplin\n2. Menghapus dosa\n3. Mencegah perbuatan zalim",
+          "opsi": [
+            "1) dan 2) benar",
+            "1) dan 3) benar",
+            "2) dan 3) benar",
+            "1), 2), dan 3) semuanya benar"
+          ],
+          "kunci": 3,
+          "jelas": "Salat melatih kedisiplinan, menjadi sarana penghapus dosa, serta mencegah perbuatan keji dan mungkar."
+        },
+        {
+          "id": "b7-17",
+          "tanya": "Penyampaian wahyu melalui perantara utusan, yaitu Malaikat Jibril, merupakan bentuk wahyu yang tertinggi karena ....\n1. Wahyu yang disampaikan harus disebarkan kepada orang lain.\n2. Harus dapat membaca wahyu yang berbentuk tulisan.\n3. Harus cepat mengerti dan menghafalkannya.",
+          "opsi": [
+            "1) dan 2) benar",
+            "1) dan 3) benar",
+            "2) dan 3) benar",
+            "1), 2), dan 3) semuanya benar"
+          ],
+          "kunci": 3,
+          "jelas": "Kunci sumber menyatakan ketiga pernyataan benar. Namun, alasan bahwa wahyu melalui Malaikat Jibril merupakan bentuk tertinggi tidak dapat dipastikan hanya dari pernyataan tersebut."
+        }
+      ]
+    },
+    {
+      "id": "bab8",
+      "judul": "Bab 8. Kepemimpinan, Politik, dan Tanggung Jawab",
+      "soal": [
+        {
+          "id": "b8-1",
+          "tanya": "Para ulama merumuskan konsep politik yang diajarkan Islam (Al-Qur'an), meliputi hal-hal berikut, kecuali ....",
+          "opsi": [
+            "Kewajiban menunaikan amanah",
+            "Perintah menetapkan hukum dengan adil",
+            "Perintah taat kepada Allah, Rasul, dan Ulil Amri",
+            "Perintah taat kepada pimpinan meskipun diktator"
+          ],
+          "kunci": 3,
+          "jelas": "Islam mengajarkan ketaatan kepada pemimpin selama tidak bertentangan dengan ketentuan Allah dan Rasul-Nya. Ketaatan mutlak kepada pemimpin yang zalim tidak dibenarkan."
+        },
+        {
+          "id": "b8-2",
+          "tanya": "Seseorang yang memegang kekuasaan politik wajib memiliki keterampilan mengomunikasikan ide-ide yang tersusun dalam rencana baik dan matang untuk memaksimalkan potensi warga demi mencapai tujuan bersama. Hal tersebut merupakan implementasi sifat ....",
+          "opsi": [
+            "Shiddiq",
+            "Amanah",
+            "Tabligh",
+            "Fathanah"
+          ],
+          "kunci": 2,
+          "jelas": "Tabligh berarti menyampaikan. Dalam kepemimpinan, sifat ini diwujudkan melalui kemampuan mengomunikasikan gagasan dan kebijakan secara jelas."
+        },
+        {
+          "id": "b8-3",
+          "tanya": "Sikap amanah merupakan sendi utama dalam interaksi sosial, terutama dalam bidang kekuasaan politik. Seorang muslim yang menggunakan hak pilihnya dalam pelaksanaan PEMILU KADA melakukan perbuatan amanah dalam bidang ....\n1. Politik hukum\n2. Sosial budaya\n3. Pendidikan politik",
+          "opsi": [
+            "1) dan 2) benar",
+            "1) dan 3) benar",
+            "2) dan 3) benar",
+            "1), 2), dan 3) semuanya benar"
+          ],
+          "kunci": 0,
+          "jelas": "Penggunaan hak pilih merupakan bentuk tanggung jawab warga negara dalam kehidupan politik dan sosial. Hak pilih harus digunakan secara bertanggung jawab."
+        }
+      ]
+    }
+  ]
+};
+
+</script>
+<script>
+/* QuizLearn: logika website. Tidak perlu diubah untuk mengganti soal (edit data.js). */
+(function () {
+  'use strict';
+
+  var D = window.QL_DATA;
+  // Jika beberapa quiz dipasang di domain yang sama, isi "kunciPenyimpanan" di data.js
+  // (misalnya "pemjasa") agar riwayat tiap mata kuliah tidak tercampur.
+  var PFX = D.kunciPenyimpanan ? 'ql_' + D.kunciPenyimpanan + '_' : 'ql_';
+  var K_RIWAYAT = PFX + 'riwayat_v1';
+  var K_AKTIF = PFX + 'ujian_aktif_v1';
+  var VIEWS = ['beranda', 'latihan', 'ujian', 'progres'];
+  // Batas analisis penguasaan (bisa diubah di data.js > pengaturan > penguasaan)
+  var PG = (D.pengaturan && D.pengaturan.penguasaan) || {};
+  var BATAS_KUASAI = PG.batasDikuasai || 80;   // persen benar minimal untuk "Dikuasai"
+  var BATAS_CUKUP = PG.batasCukup || 60;       // persen benar minimal untuk "Cukup"
+  var MIN_BAB = PG.minJawabanBab || 5;         // jumlah jawaban minimal agar bab dinilai
+  var MIN_SOAL = PG.minJawabanSoal || 2;       // soal dinilai setelah dijawab minimal sekian kali
+  var BATAS_SALAH = PG.batasSoalSalah || 50;   // persen salah minimal agar soal masuk "sering salah"
+
+  /* ---------- penyimpanan (aman jika localStorage diblokir) ---------- */
+  var mem = {};
+  function sget(k) {
+    try { var v = localStorage.getItem(k); return v === null ? (mem[k] || null) : v; }
+    catch (e) { return mem[k] || null; }
+  }
+  function sset(k, v) { mem[k] = v; try { localStorage.setItem(k, v); } catch (e) {} }
+  function sdel(k) { delete mem[k]; try { localStorage.removeItem(k); } catch (e) {} }
+  function parse(s, fb) { try { return s ? JSON.parse(s) : fb; } catch (e) { return fb; } }
+
+  /* ---------- data soal ---------- */
+  var Q = {};       // id -> soal
+  var ALL = [];     // semua id soal berurutan dari bab pertama
+  var BAB = {};     // id bab -> bab
+  D.bab.forEach(function (b) {
+    BAB[b.id] = b;
+    b.soal.forEach(function (s) {
+      s.babId = b.id; s.babJudul = b.judul;
+      Q[s.id] = s; ALL.push(s.id);
+    });
+  });
+
+  /* ---------- util ---------- */
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtNum(n) { return Number(n).toLocaleString('id-ID', { maximumFractionDigits: 1 }); }
+  function fmtTime(sec) {
+    sec = Math.max(0, sec);
+    var m = Math.floor(sec / 60), s = sec % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function fmtDate(iso) {
+    try {
+      return new Date(iso).toLocaleString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    } catch (e) { return iso; }
+  }
+  function shuffle(a) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  var LET = ['A', 'B', 'C', 'D'];
+
+  var P = {
+    home: '<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+    book: '<path d="M2 5.5C4.5 4 8 4 12 6c4-2 7.5-2 10-.5V19c-2.5-1.5-6-1.5-10 .5-4-2-7.5-2-10-.5z"/><path d="M12 6v13.5"/>',
+    pencil: '<path d="M4 20l1-4L16 5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14 7l3 3"/>',
+    trophy: '<path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4v2a3 3 0 0 0 4 2.8M16 6h4v2a3 3 0 0 1-4 2.8"/><path d="M12 13v4M8.5 20h7M10 17h4"/>',
+    chart: '<rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="5" width="4" height="15" rx="1"/><rect x="16" y="9" width="4" height="11" rx="1"/>',
+    clip: '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9z"/><path d="M9 12h6M9 16h4"/>',
+    star: '<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/>',
+    target: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 12h.01"/>',
+    chev: '<path d="M9 6l6 6-6 6"/>',
+    left: '<path d="M15 6l-6 6 6 6"/>',
+    arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    flag: '<path d="M6 21V4"/><path d="M6 5h11l-2 4 2 4H6"/>',
+    grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+    bolt: '<path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/>',
+    calc: '<rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/>',
+    bksp: '<path d="M21 5H9l-6 7 6 7h12z"/><path d="M12.5 9.5l5 5M17.5 9.5l-5 5"/>',
+    clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'
+  };
+  function ic(n, s) {
+    s = s || 22;
+    return '<svg width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + P[n] + '</svg>';
+  }
+
+  /* ---------- riwayat ujian ---------- */
+  function validRec(x) {
+    return x && typeof x === 'object' && typeof x.id === 'string' && x.id.length > 0 && x.id.length <= 40 &&
+      typeof x.tanggal === 'string' && !isNaN(new Date(x.tanggal).getTime()) &&
+      Number.isInteger(x.benar) && Number.isInteger(x.salah) && x.benar >= 0 && x.salah >= 0 && x.benar + x.salah > 0;
+  }
+  function cleanRec(x) {
+    var total = x.benar + x.salah;
+    return {
+      id: x.id,
+      tanggal: new Date(x.tanggal).toISOString(),
+      benar: x.benar, salah: x.salah, total: total,
+      nilai: Math.round(x.benar / total * 1000) / 10,
+      durasi: Number.isFinite(x.durasi) && x.durasi >= 0 ? Math.round(x.durasi) : 0,
+      waktuHabis: !!x.waktuHabis,
+      detail: cleanDetail(x.detail)
+    };
+  }
+  // detail: id soal -> 1 (benar), 0 (salah), -1 (tidak sempat dijawab karena waktu habis)
+  function cleanDetail(d) {
+    var o = {}, n = 0;
+    if (!d || typeof d !== 'object' || Array.isArray(d)) return o;
+    Object.keys(d).forEach(function (k) {
+      if (n < 1000 && k.length <= 40 && k !== '__proto__' && (d[k] === 1 || d[k] === 0 || d[k] === -1)) { o[k] = d[k]; n++; }
+    });
+    return o;
+  }
+  function hasQ(id) { return Object.prototype.hasOwnProperty.call(Q, id); }
+  function getHist() {
+    var r = parse(sget(K_RIWAYAT), []);
+    return Array.isArray(r) ? r.filter(validRec).map(cleanRec) : [];
+  }
+  function setHist(h) { sset(K_RIWAYAT, JSON.stringify(h)); }
+  function stats(h) {
+    if (!h.length) return { n: 0, avg: null, max: null, last: null };
+    var sum = 0, max = 0;
+    h.forEach(function (r) { sum += r.nilai; if (r.nilai > max) max = r.nilai; });
+    return { n: h.length, avg: Math.round(sum / h.length * 10) / 10, max: max, last: h[h.length - 1].nilai };
+  }
+
+  /* ---------- analisis penguasaan (dari riwayat ujian) ---------- */
+  function statusBab(n, pct) {
+    if (n < MIN_BAB) return { k: 'data', t: 'Belum cukup data' };
+    if (pct >= BATAS_KUASAI) return { k: 'kuasai', t: 'Dikuasai' };
+    if (pct >= BATAS_CUKUP) return { k: 'cukup', t: 'Cukup' };
+    return { k: 'belum', t: 'Belum dikuasai' };
+  }
+  function analisis(h) {
+    var perSoal = {}, perBab = {}, ada = false;
+    D.bab.forEach(function (b) { perBab[b.id] = { b: b, benar: 0, salah: 0 }; });
+    h.forEach(function (r) {
+      Object.keys(r.detail || {}).forEach(function (id) {
+        var c = r.detail[id];
+        if (!hasQ(id) || c === -1) return;   // soal yang tidak sempat dijawab tidak dihitung
+        ada = true;
+        var s = perSoal[id] || (perSoal[id] = { id: id, benar: 0, salah: 0 });
+        var bb = perBab[Q[id].babId];
+        if (c === 1) { s.benar++; bb.benar++; } else { s.salah++; bb.salah++; }
+      });
+    });
+    var bab = D.bab.map(function (b) {
+      var x = perBab[b.id], n = x.benar + x.salah, pct = n ? Math.round(x.benar / n * 100) : 0;
+      return { b: b, n: n, pct: pct, st: statusBab(n, pct) };
+    });
+    var salah = [], benar = [];
+    ALL.forEach(function (id) {
+      var s = perSoal[id];
+      if (!s) return;
+      var n = s.benar + s.salah;
+      if (n < MIN_SOAL) return;
+      if (s.salah === 0) benar.push(s);
+      else if (s.salah / n * 100 >= BATAS_SALAH) salah.push(s);
+    });
+    salah.sort(function (a, b) {
+      return (b.salah / (b.benar + b.salah)) - (a.salah / (a.benar + a.salah)) || b.salah - a.salah;
+    });
+    return { ada: ada, bab: bab, salah: salah, benar: benar };
+  }
+
+  /* ---------- status aplikasi ---------- */
+  var view = readHash();
+  var lat = { fase: 'awal', list: [], i: 0, ans: {}, b: 'semua', label: '' };
+  var aktif = loadAktif();      // ujian yang sedang berjalan
+  var ujHasil = null;           // hasil ujian terakhir (ditampilkan sekali)
+  var navOpen = false;          // pop-up navigasi nomor soal
+  var calcOpen = false;         // pop-up kalkulator
+  var calc = null;              // status kalkulator (diisi di bagian kalkulator)
+  var confirming = false;       // panel konfirmasi akhiri ujian
+  var hapusConfirm = false;     // panel konfirmasi hapus riwayat
+  var cadangan = null;          // teks cadangan untuk disalin manual
+  var lastView = null;
+
+  /* ---------- kunci ujian: selama ujian berjalan, pengguna tidak boleh pindah halaman ---------- */
+  var PESAN_KUNCI = 'Ujian sedang berjalan. Selesaikan ujian dulu sebelum pindah halaman.';
+  function terkunci() { return !!aktif; }
+  function kembaliKeUjian() {
+    try { history.replaceState(null, '', '#ujian'); } catch (e) { location.hash = 'ujian'; }
+  }
+  // Jika halaman dibuka ulang (refresh) saat ujian masih berjalan, langsung kembali ke ujian.
+  if (aktif && view !== 'ujian') { view = 'ujian'; kembaliKeUjian(); }
+
+  function readHash() {
+    var h = (location.hash || '').replace('#', '');
+    return VIEWS.indexOf(h) >= 0 ? h : 'beranda';
+  }
+  function loadAktif() {
+    var a = parse(sget(K_AKTIF), null);
+    if (!a || !Array.isArray(a.ids) || !a.ids.length || typeof a.endAt !== 'number' || typeof a.startAt !== 'number') return null;
+    for (var i = 0; i < a.ids.length; i++) { if (!Q[a.ids[i]]) return null; }
+    a.answers = (a.answers && typeof a.answers === 'object') ? a.answers : {};
+    var fl = {};
+    if (a.flags && typeof a.flags === 'object') { a.ids.forEach(function (id) { if (a.flags[id] === true && a.answers[id] !== undefined && a.answers[id] !== null) fl[id] = true; }); }
+    a.flags = fl;
+    a.idx = Math.min(Math.max(0, a.idx | 0), a.ids.length - 1);
+    return a;
+  }
+  function saveAktif() { sset(K_AKTIF, JSON.stringify(aktif)); }
+
+  /* ---------- tampilan ---------- */
+  var $main = document.getElementById('main');
+  var $dock = document.getElementById('dock');
+  var $toast = document.getElementById('toast');
+  var $ov = document.createElement('div'); $ov.id = 'overlay'; document.body.appendChild($ov);
+  var toastTimer = null;
+  document.getElementById('mapel').textContent = D.mapel;
+
+  function toast(msg) {
+    $toast.textContent = msg;
+    $toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { $toast.classList.remove('show'); }, 3800);
+  }
+
+  var DOCK_ITEMS = [['beranda', 'Beranda', 'home'], ['latihan', 'Latihan', 'pencil'], ['ujian', 'Ujian', 'trophy'], ['progres', 'Progres', 'chart']];
+  function renderDock() {
+    if ($dock.children.length !== DOCK_ITEMS.length) {
+      $dock.innerHTML = DOCK_ITEMS.map(function (it) {
+        return '<button type="button" data-act="go" data-v="' + it[0] + '">' + ic(it[2]) + it[1] + '</button>';
+      }).join('');
+    }
+    // Tombol dipertahankan; hanya penanda halaman aktif yang diganti agar transisinya halus.
+    for (var i = 0; i < $dock.children.length; i++) {
+      var b = $dock.children[i];
+      if (b.getAttribute('data-v') === view) b.setAttribute('aria-current', 'page');
+      else b.removeAttribute('aria-current');
+      // Saat ujian berjalan, menu selain Ujian dinonaktifkan.
+      var kunci = terkunci() && b.getAttribute('data-v') !== 'ujian';
+      if (kunci) { b.setAttribute('aria-disabled', 'true'); b.style.opacity = '.4'; }
+      else { b.removeAttribute('aria-disabled'); b.style.opacity = ''; }
+    }
+  }
+
+  function reduced() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
+
+  /* ---- Pembaruan DOM tanpa membangun ulang: elemen yang sama dipertahankan sehingga transisi CSS,
+     fokus, dan efek tekan tombol tidak terputus saat jawaban dipilih atau soal berganti. ---- */
+  var KEEP_CLS = ['ql-pressed', 'q-in-next', 'q-in-prev'];
+  function syncClass(o, n) {
+    var want = n.getAttribute('class') || '';
+    var keep = KEEP_CLS.filter(function (c) { return o.classList.contains(c) && !n.classList.contains(c); });
+    if (keep.length) want = (want + ' ' + keep.join(' ')).trim();
+    if (want) { if (o.getAttribute('class') !== want) o.setAttribute('class', want); }
+    else if (o.hasAttribute('class')) o.removeAttribute('class');
+  }
+  function syncAttrs(o, n) {
+    var i, nm;
+    for (i = o.attributes.length - 1; i >= 0; i--) {
+      nm = o.attributes[i].name;
+      if (nm !== 'class' && !n.hasAttribute(nm)) o.removeAttribute(nm);
+    }
+    for (i = 0; i < n.attributes.length; i++) {
+      nm = n.attributes[i].name;
+      if (nm !== 'class' && o.getAttribute(nm) !== n.attributes[i].value) o.setAttribute(nm, n.attributes[i].value);
+    }
+    syncClass(o, n);
+  }
+  function morph(o, n) {
+    if (o.nodeType !== n.nodeType || o.nodeName !== n.nodeName) { o.parentNode.replaceChild(n, o); return; }
+    if (o.nodeType === 3 || o.nodeType === 8) { if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue; return; }
+    if (o.nodeType !== 1) return;
+    syncAttrs(o, n);
+    morphKids(o, n);
+  }
+  function kid(c) { return c.nodeType === 1 && c.id ? c.id : ''; }
+  // Elemen ber-id dicocokkan lewat id-nya (mis. kolom isian), sisanya lewat urutan.
+  function morphKids(o, n) {
+    var oa = Array.prototype.slice.call(o.childNodes), na = Array.prototype.slice.call(n.childNodes);
+    var byId = {}, newIds = {}, used = [], pos = 0, i, oc, nc;
+    oa.forEach(function (c) { if (kid(c)) byId[kid(c)] = c; });
+    na.forEach(function (c) { if (kid(c)) newIds[kid(c)] = true; });
+    for (i = 0; i < na.length; i++) {
+      nc = na[i]; oc = null;
+      if (kid(nc) && byId[kid(nc)] && used.indexOf(byId[kid(nc)]) < 0) oc = byId[kid(nc)];
+      else if (!kid(nc)) {
+        while (pos < oa.length && (used.indexOf(oa[pos]) >= 0 || (kid(oa[pos]) && newIds[kid(oa[pos])]))) pos++;
+        if (pos < oa.length) oc = oa[pos++];
+      }
+      if (oc) {
+        used.push(oc);
+        if (o.childNodes[i] !== oc) o.insertBefore(oc, o.childNodes[i] || null);
+        morph(oc, nc);
+      } else {
+        o.insertBefore(nc, o.childNodes[i] || null);
+      }
+    }
+    oa.forEach(function (c) { if (used.indexOf(c) < 0 && c.parentNode === o) o.removeChild(c); });
+  }
+  function patchMain(html, force) {
+    if (force) { $main.innerHTML = html; return; }
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    morphKids($main, t.content);
+  }
+
+  /* ---- Transisi pindah soal ---- */
+  var pendingNav = null;   // perpindahan soal yang menunggu animasi keluar selesai
+  function isQuestionView() {
+    return view === 'latihan' ? lat.fase === 'jalan' : !!(view === 'ujian' && aktif && !ujHasil);
+  }
+  function animQuestion(dir) {
+    var el = $main.querySelector('.qsec');
+    if (!el) return;
+    el.classList.remove('q-out-next', 'q-out-prev', 'q-in-next', 'q-in-prev');
+    void el.offsetWidth;   // paksa browser mengulang animasi
+    var cls = dir === 'prev' ? 'q-in-prev' : 'q-in-next';
+    el.classList.add(cls);
+    var selesai = function () { el.classList.remove(cls); el.removeEventListener('animationend', selesai); };
+    el.addEventListener('animationend', selesai);
+    setTimeout(selesai, 400);
+  }
+  function pindahSoal(arah, ubah) {
+    ubah();   // status berubah segera; tampilan menyusul setelah animasi keluar
+    if (reduced()) { render({ top: true, questionDirection: arah }); return; }
+    if (pendingNav) { pendingNav.arah = arah; return; }   // ketukan beruntun: cukup render sekali dengan status terbaru
+    var cur = $main.querySelector('.qsec');
+    if (cur) cur.classList.add(arah === 'prev' ? 'q-out-prev' : 'q-out-next');
+    pendingNav = { arah: arah, t: null };
+    pendingNav.t = setTimeout(function () { render({ top: true, questionDirection: arah }); }, 110);
+  }
+
+  /* ---- Pop-up (navigasi soal dan kalkulator) ---- */
+  var ovKey = '';
+  function overlayKey() {
+    var on = (navOpen || calcOpen) && ((view === 'ujian' && aktif && !ujHasil) || (view === 'latihan' && lat.fase === 'jalan'));
+    if (!on) { navOpen = false; calcOpen = false; return ''; }
+    return calcOpen ? 'calc' : (view === 'latihan' ? 'lat-nav' : 'uj-nav');
+  }
+  function setInert(on) {
+    [document.querySelector('.app'), document.getElementById('dock')].forEach(function (x) {
+      if (!x) return;
+      if (on) x.setAttribute('inert', ''); else x.removeAttribute('inert');
+    });
+  }
+  // Hanya membangun ulang pop-up bila jenisnya berubah, sehingga animasi buka tidak terulang dan isi halaman tidak berkedip.
+  function syncOverlay() {
+    var key = overlayKey();
+    if (key === ovKey && (key === '' || $ov.firstChild)) return;
+    ovKey = key;
+    $ov.innerHTML = key === 'calc' ? vCalcPopup() : key === 'lat-nav' ? vLatNavPopup() : key === 'uj-nav' ? vNavPopup() : '';
+    setInert(!!key);
+    document.body.style.overflow = key ? 'hidden' : '';
+  }
+  function closePopup(cb) {
+    var popup = $ov.querySelector('.ov');
+    var selesai = function () { navOpen = false; calcOpen = false; syncOverlay(); if (cb) cb(); };
+    if (!popup) { selesai(); return; }
+    if (popup.classList.contains('is-closing')) return;
+    popup.classList.add('is-closing');
+    setTimeout(selesai, reduced() ? 0 : 175);
+  }
+  function fokus(act) {
+    var el = document.querySelector('[data-act="' + act + '"]');
+    if (el) el.focus();
+  }
+
+  function render(opts) {
+    opts = opts || {};
+    if (pendingNav) {
+      clearTimeout(pendingNav.t);
+      if (!opts.questionDirection) { opts.questionDirection = pendingNav.arah; opts.top = true; }
+      pendingNav = null;
+    }
+    var html;
+    if (view === 'latihan') html = vLatihan();
+    else if (view === 'ujian') html = vUjian();
+    else if (view === 'progres') html = vProgres();
+    else html = vBeranda();
+    var swap = !!opts.questionDirection && isQuestionView() && lastView === view && !reduced();
+    if (swap) $main.classList.add('q-swap');   // matikan transisi isi kartu selama soal diganti
+    patchMain(html, lastView !== view);
+    if (swap) {
+      animQuestion(opts.questionDirection);
+      var lepas = function () { $main.classList.remove('q-swap'); };
+      if (window.requestAnimationFrame) requestAnimationFrame(function () { requestAnimationFrame(lepas); });
+      else setTimeout(lepas, 50);
+    }
+    syncOverlay();
+    renderDock();
+    document.title = 'QuizLearn - ' + D.mapel;
+    if (lastView !== view || opts.top) {
+      window.scrollTo(0, 0);
+      if (lastView !== view) { try { $main.focus({ preventScroll: true }); } catch (e) {} }
+    }
+    lastView = view;
+    tick();
+  }
+
+  function go(v) {
+    if (terkunci() && v !== 'ujian') { toast(PESAN_KUNCI); return; }
+    if (location.hash === '#' + v) { view = v; render(); }
+    else { location.hash = v; }
+  }
+  window.addEventListener('hashchange', function () {
+    var v = readHash();
+    // Tombol Kembali / ubah alamat saat ujian berjalan: batalkan dan tetap di ujian.
+    if (terkunci() && v !== 'ujian') { kembaliKeUjian(); view = 'ujian'; toast(PESAN_KUNCI); render(); return; }
+    view = v; render();
+  });
+  // Peringatan bila pengguna mencoba menutup / memuat ulang halaman saat ujian berjalan.
+  window.addEventListener('beforeunload', function (e) {
+    if (terkunci()) { e.preventDefault(); e.returnValue = ''; return ''; }
+  });
+
+  /* ----- grafik nilai ----- */
+  function chart(h) {
+    var d = h.slice(-7), n = d.length;
+    if (!n) return '<p class="empty">Belum ada data. Selesaikan satu ujian untuk melihat grafik nilai.</p>';
+    var x0 = 40, x1 = 292, base = 130;
+    var pts = d.map(function (r, i) {
+      return { x: n === 1 ? 166 : x0 + i * (x1 - x0) / (n - 1), y: base - r.nilai, r: r, no: h.length - n + i + 1 };
+    });
+    var last = pts[n - 1];
+    var s = '<svg class="chart" viewBox="0 0 320 152" role="img" aria-label="Grafik nilai ujian terakhir, nilai terbaru ' + fmtNum(last.r.nilai) + '">';
+    s += '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A0A0A" stop-opacity="0.18"/><stop offset="1" stop-color="#0A0A0A" stop-opacity="0"/></linearGradient></defs>';
+    [100, 75, 50, 25, 0].forEach(function (v) {
+      s += '<line class="gl" x1="30" y1="' + (base - v) + '" x2="312" y2="' + (base - v) + '"/>';
+      s += '<text x="24" y="' + (base - v + 3) + '" text-anchor="end">' + v + '</text>';
+    });
+    if (n > 1) {
+      s += '<path d="M' + pts[0].x + ',' + base + ' ' + pts.map(function (p) { return 'L' + p.x + ',' + p.y; }).join(' ') + ' L' + last.x + ',' + base + ' Z" fill="url(#ag)"/>';
+      s += '<polyline class="ln" points="' + pts.map(function (p) { return p.x + ',' + p.y; }).join(' ') + '"/>';
+    }
+    pts.forEach(function (p, i) {
+      if (i < n - 1) s += '<circle class="pt" cx="' + p.x + '" cy="' + p.y + '" r="4.5"/>';
+    });
+    s += '<circle class="pe" cx="' + last.x + '" cy="' + last.y + '" r="5.5"/>';
+    var ty = Math.max(2, last.y - 28), tx = Math.min(last.x - 20, 278);
+    s += '<rect class="tip" x="' + tx + '" y="' + ty + '" width="40" height="18" rx="9"/>';
+    s += '<text class="tipt" x="' + (tx + 20) + '" y="' + (ty + 13) + '" text-anchor="middle">' + fmtNum(last.r.nilai) + '</text>';
+    pts.forEach(function (p) { s += '<text x="' + p.x + '" y="147" text-anchor="middle">#' + p.no + '</text>'; });
+    return s + '</svg>';
+  }
+
+  /* ----- beranda ----- */
+  function statsHtml(st) {
+    var items = [
+      ['clip', st.n ? String(st.n) : '0', 'Ujian Selesai'],
+      ['target', st.avg === null ? '–' : fmtNum(st.avg), 'Rata-rata Nilai'],
+      ['trophy', st.max === null ? '–' : fmtNum(st.max), 'Nilai Tertinggi'],
+      ['star', st.last === null ? '–' : fmtNum(st.last), 'Nilai Terakhir']
+    ];
+    return '<div class="stats">' + items.map(function (it) {
+      return '<div class="glass stat">' + ic(it[0], 24) + '<b>' + it[1] + '</b><span>' + it[2] + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function vBeranda() {
+    var h = getHist(), st = stats(h);
+    var jml = Math.min(D.pengaturan.ujianJumlahSoal, ALL.length), mnt = D.pengaturan.ujianMenit;
+    var html = '<h1 class="h1">Selamat Datang Kembali!</h1>' +
+      '<p class="lead">Berlatih, lalu uji pemahamanmu di ' + esc(D.mapel) + '.</p>';
+    if (aktif) {
+      html += '<section class="glass card" style="flex-direction:row;align-items:center;flex-wrap:wrap"><div style="flex:1 1 160px"><h3 class="h3">Ujian sedang berjalan</h3><span class="muted small">Waktu terus berjalan. Lanjutkan sebelum habis.</span></div><button type="button" class="btn btn-sm" data-act="go" data-v="ujian">Lanjutkan</button></section>';
+    }
+    html += statsHtml(st);
+    html += '<section class="card dark on-dark"><div class="eyebrow">Ujian Quiz</div>' +
+      '<div class="cta"><div class="grow"><div class="t">Uji pemahamanmu</div><div class="meta">' + jml + ' soal, ' + mnt + ' menit</div></div>' +
+      '<button type="button" class="btn btn-light" data-act="go" data-v="ujian">Mulai Ujian ' + ic('arrow', 16) + '</button></div></section>';
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Perkembangan Nilai Ujian</h2>' + chart(h) + '</section>';
+    return html;
+  }
+
+  /* ----- latihan ----- */
+  function latBaru() { return { fase: 'awal', list: [], i: 0, ans: {}, b: 'semua', label: '' }; }
+
+  function latHitung() {
+    var dj = 0, bn = 0;
+    lat.list.forEach(function (id) {
+      var v = lat.ans[id];
+      if (v !== undefined) { dj++; if (v === Q[id].kunci) bn++; }
+    });
+    return { dj: dj, bn: bn };
+  }
+
+  function exTeks(ok, teks) {
+    return '<div class="ex ' + (ok ? 'ok' : 'bad') + '"><b>' + ic(ok ? 'check' : 'x', 16) + (ok ? 'Mengapa jawaban ini benar' : 'Mengapa jawaban ini salah') + '</b><p>' + esc(teks) + '</p></div>';
+  }
+
+  function vLatihan() {
+    if (lat.fase === 'awal') {
+      return '<h1 class="h1">Latihan Quiz</h1><p class="lead">Kerjakan seluruh soal dalam satu rangkaian. Setiap jawaban langsung dikoreksi dan dijelaskan, tanpa batas waktu.</p>' +
+        '<section class="glass card"><h2 class="h2"><span class="dot"></span>Cara Berlatih</h2><ol class="rules">' +
+        '<li>Bacalah setiap soal dengan teliti.</li>' +
+        '<li>Pilih satu jawaban yang paling tepat.</li>' +
+        '<li>Koreksi dan penjelasan langsung muncul setelah kamu memilih.</li>' +
+        '<li>Jawaban yang sudah dipilih tidak bisa diubah.</li>' +
+        '<li>Gunakan tombol Nomor untuk berpindah ke soal lain.</li>' +
+        '<li>Hasil latihan tidak disimpan di Progres.</li></ol>' +
+        (ALL.length ? '<button type="button" class="btn btn-block" data-act="lat-mulai">' + ic('pencil', 18) + 'Mulai Latihan (' + ALL.length + ' soal)</button>' : '<button type="button" class="btn btn-block" disabled>Mulai Latihan</button><p class="note" style="text-align:center">Belum ada soal tersedia.</p>') + '</section>';
+    }
+    var n = lat.list.length, c = latHitung();
+    if (lat.fase === 'selesai') {
+      var pct = Math.round(c.bn / n * 1000) / 10;
+      return '<h1 class="h1">Latihan Selesai</h1>' +
+        '<section class="glass card"><div class="eyebrow" style="color:var(--ink-2)">' + esc(lat.label) + '</div><div class="score">' + c.bn + '<small> / ' + n + ' benar</small></div><p class="lead">Ketepatan ' + fmtNum(pct) + '%. Hasil latihan tidak disimpan di Progres.</p></section>' +
+        '<div class="row"><button type="button" class="btn" data-act="lat-ulang">Ulangi</button><button type="button" class="btn btn-ghost" data-act="lat-keluar">Kembali</button></div>';
+    }
+    var id = lat.list[lat.i], q = Q[id], pilih = lat.ans[id], done = pilih !== undefined, sisa = n - c.dj;
+    var h = '<div class="qhead"><span class="chip">Soal ' + (lat.i + 1) + ' dari ' + n + '</span>' +
+      '<button type="button" class="chip chip-btn" data-act="nav-buka" aria-haspopup="dialog" aria-label="Buka navigasi soal">' + ic('grid', 14) + '</button>' +
+      '<button type="button" class="chip chip-btn chip-ico" data-act="calc-buka" aria-haspopup="dialog" aria-label="Buka kalkulator">' + ic('calc', 16) + '</button>' +
+      '<button type="button" class="btn btn-ghost btn-sm" style="margin-left:auto" data-act="lat-keluar">Keluar</button></div>';
+    h += '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + n + '" aria-valuenow="' + c.dj + '" aria-label="Kemajuan latihan"><i style="width:' + (c.dj / n * 100) + '%"></i></div>';
+    h += '<section class="glass card qsec"><p class="qtext">' + esc(q.tanya) + '</p><div class="opts">';
+    q.opsi.forEach(function (o, k) {
+      var cls = '', tag = '', ex = '';
+      if (done) {
+        if (k === q.kunci) {
+          cls = ' ok'; tag = '<span class="tag">' + (pilih === k ? 'Jawabanmu benar' : 'Jawaban yang benar') + '</span>';
+          ex = q.jelas ? exTeks(true, q.jelas) : '';
+        } else if (k === pilih) {
+          cls = ' bad'; tag = '<span class="tag">Jawabanmu salah</span>';
+          var jo = (q.jelasOpsi && q.jelasOpsi[k]) || (q.jelas ? 'Pilihan ini kurang tepat. Lihat penjelasan pada jawaban yang benar.' : '');
+          ex = jo ? exTeks(false, jo) : '';
+        } else cls = ' dim';
+      }
+      h += '<div class="og"><button type="button" class="opt' + cls + '" data-act="lat-jawab" data-k="' + k + '"' + (done ? ' disabled' : '') + '><span class="lt">' + LET[k] + '</span><span class="tx"><span>' + esc(o) + '</span>' + tag + '</span></button>' + ex + '</div>';
+    });
+    h += '</div></section>';
+    h += '<div class="ctl"><button type="button" class="btn btn-ghost btn-step" data-act="lat-prev" aria-label="Soal sebelumnya"' + (lat.i === 0 ? ' disabled' : '') + '>' + ic('left', 22) + '</button>' +
+      '<button type="button" class="btn btn-ghost" data-act="lat-akhiri"' + (sisa > 0 ? ' disabled' : '') + '>Akhiri Latihan</button>' +
+      '<button type="button" class="btn btn-ghost btn-step" data-act="lat-next" aria-label="Soal berikutnya"' + (lat.i >= n - 1 ? ' disabled' : '') + '>' + ic('chev', 22) + '</button></div>';
+    if (sisa > 0) h += '<p class="note" style="text-align:center">Masih ada ' + sisa + ' soal yang belum dijawab.</p>';
+    return h;
+  }
+
+  function vLatNavPopup() {
+    var n = lat.list.length, c = latHitung();
+    var g = '<div class="nav-grid" role="group" aria-label="Nomor soal">';
+    lat.list.forEach(function (x, i) {
+      var v = lat.ans[x], d = v !== undefined, ok = d && v === Q[x].kunci;
+      g += '<button type="button" class="nb' + (d ? (ok ? ' done' : ' bad') : '') + (i === lat.i ? ' now' : '') + '" data-act="lat-ke" data-i="' + i + '" aria-label="Soal ' + (i + 1) + (d ? (ok ? ', dijawab benar' : ', dijawab salah') : ', belum dijawab') + '"' + (i === lat.i ? ' aria-current="true"' : '') + '><span class="n">' + (i + 1) + '</span></button>';
+    });
+    g += '</div>';
+    return '<div class="ov" data-act="nav-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="navt" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="navt">Navigasi Soal</h2><button type="button" class="iconbtn" data-act="nav-tutup" aria-label="Tutup navigasi soal">' + ic('x', 18) + '</button></div>' +
+      '<p class="note">Dijawab ' + c.dj + ' dari ' + n + '. Belum dijawab ' + (n - c.dj) + '. Benar ' + c.bn + '. Salah ' + (c.dj - c.bn) + '.</p>' +
+      g + '<button type="button" class="btn btn-block" data-act="nav-tutup">Tutup</button></div></div>';
+  }
+
+  function latMulai(b) {
+    var ids, label;
+    if (!ALL.length) { toast('Belum ada soal tersedia.'); return; }
+    b = b || 'semua';
+    if (b === 'semua') { ids = ALL.slice(); label = 'Semua Soal'; }
+    else if (b === 'salah') {
+      var set = {};
+      analisis(getHist()).salah.forEach(function (s) { set[s.id] = true; });
+      ids = ALL.filter(function (id) { return set[id]; });
+      label = 'Soal yang sering salah';
+      if (!ids.length) { toast('Belum ada soal yang sering salah.'); return; }
+    } else if (BAB[b]) { ids = BAB[b].soal.map(function (s) { return s.id; }); label = BAB[b].judul; }
+    else return;
+    muat('Menyiapkan latihan', function () {
+      lat = { fase: 'jalan', list: ids, i: 0, ans: {}, b: b, label: label };
+      navOpen = false; calcOpen = false;
+      go('latihan');
+      render({ top: true });
+    });
+  }
+
+  /* ----- ujian ----- */
+  function ujianJumlah() { return Math.min(D.pengaturan.ujianJumlahSoal, ALL.length); }
+
+  function vUjian() {
+    if (aktif) return vUjianJalan();
+    if (ujHasil) return vUjianHasil();
+    var mnt = D.pengaturan.ujianMenit;
+    var h = getHist(), last = h.length ? h[h.length - 1] : null;
+    return '<h1 class="h1">Ujian Quiz</h1><p class="lead">Ujikan pemahamanmu tanpa petunjuk jawaban.</p>' +
+      '<section class="glass card"><h2 class="h2"><span class="dot"></span>Peraturan Pengerjaan Quiz</h2><ol class="rules">' +
+      '<li>Bacalah setiap soal dengan teliti.</li>' +
+      '<li>Pilih satu jawaban yang paling tepat.</li>' +
+      '<li>Setiap soal hanya memiliki satu jawaban benar.</li>' +
+      '<li>Waktu pengerjaan ' + mnt + ' menit.</li>' +
+      '<li>Periksa kembali jawaban sebelum menyelesaikan quiz.</li>' +
+      '<li>Hasil quiz ditampilkan setelah pengerjaan selesai.</li></ol>' +
+      (ALL.length ? '<button type="button" class="btn btn-block" data-act="uj-mulai">' + ic('clock', 18) + 'Mulai Ujian</button>' : '<button type="button" class="btn btn-block" disabled>Mulai Ujian</button><p class="note" style="text-align:center">Belum ada soal tersedia.</p>') + '</section>' +
+      (last ? '<p class="note">Ujian terakhir: nilai ' + fmtNum(last.nilai) + ' (' + last.benar + ' benar, ' + last.salah + ' salah), ' + esc(fmtDate(last.tanggal)) + '.</p>' : '');
+  }
+
+  function navGrid(a) {
+    var h = '<div class="nav-grid" role="group" aria-label="Nomor soal">';
+    a.ids.forEach(function (x, i) {
+      var d = a.answers[x] !== undefined && a.answers[x] !== null, r = !!a.flags[x];
+      var huruf = d ? LET[a.answers[x]] : '';
+      h += '<button type="button" class="nb' + (d ? (r ? ' ragu' : ' done') : '') + (i === a.idx ? ' now' : '') + '" data-act="uj-ke" data-i="' + i + '" aria-label="Soal ' + (i + 1) + (d ? ', dijawab ' + huruf : ', belum dijawab') + (r ? ', ragu-ragu' : '') + '"' + (i === a.idx ? ' aria-current="true"' : '') + '><span class="n">' + (d ? huruf : (i + 1)) + '</span></button>';
+    });
+    return h + '</div>';
+  }
+
+  function vNavPopup() {
+    var a = aktif, n = a.ids.length, dj = 0, rg = 0;
+    a.ids.forEach(function (x) { if (a.answers[x] !== undefined && a.answers[x] !== null) dj++; if (a.flags[x]) rg++; });
+    return '<div class="ov" data-act="nav-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="navt" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="navt">Navigasi Soal</h2><button type="button" class="iconbtn" data-act="nav-tutup" aria-label="Tutup navigasi soal">' + ic('x', 18) + '</button></div>' +
+      '<p class="note">Dijawab ' + dj + ' dari ' + n + '. Belum dijawab ' + (n - dj) + '. Ragu-ragu ' + rg + '.</p>' +
+      navGrid(a) +
+      '<button type="button" class="btn btn-block" data-act="nav-tutup">Tutup</button></div></div>';
+  }
+
+  function vUjianJalan() {
+    var a = aktif, n = a.ids.length, id = a.ids[a.idx], q = Q[id];
+    var jawab = a.answers, terjawab = 0, ragu = 0;
+    a.ids.forEach(function (x) { if (jawab[x] !== undefined && jawab[x] !== null) terjawab++; if (a.flags[x]) ragu++; });
+    var sisa = n - terjawab, isRagu = !!a.flags[id];
+    var rem = Math.max(0, Math.ceil((a.endAt - Date.now()) / 1000));
+    var h = '<div class="qhead"><span class="chip">Soal ' + (a.idx + 1) + ' dari ' + n + '</span>' +
+      '<button type="button" class="chip chip-btn" data-act="nav-buka" aria-haspopup="dialog" aria-label="Buka navigasi soal">' + ic('grid', 14) + '</button>' +
+      '<button type="button" class="chip chip-btn chip-ico" data-act="calc-buka" aria-haspopup="dialog" aria-label="Buka kalkulator">' + ic('calc', 16) + '</button>' +
+      '<span class="chip timer" id="timer" role="timer" aria-label="Sisa waktu" data-low="' + (rem < 60 ? 1 : 0) + '">' + fmtTime(rem) + '</span></div>';
+    h += '<section class="glass card qsec"><p class="qtext">' + esc(q.tanya) + '</p><div class="opts">';
+    q.opsi.forEach(function (o, k) {
+      var sel = jawab[id] === k;
+      h += '<button type="button" class="opt' + (sel ? ' sel' : '') + '" data-act="uj-jawab" data-k="' + k + '" aria-pressed="' + (sel ? 'true' : 'false') + '"><span class="lt">' + LET[k] + '</span><span class="tx"><span>' + esc(o) + '</span></span></button>';
+    });
+    h += '</div></section>';
+    h += '<div class="ctl"><button type="button" class="btn btn-ghost btn-step" data-act="uj-prev" aria-label="Soal sebelumnya"' + (a.idx === 0 ? ' disabled' : '') + '>' + ic('left', 22) + '</button>' +
+      '<button type="button" class="btn btn-ghost btn-ragu" data-act="uj-ragu" aria-pressed="' + (isRagu ? 'true' : 'false') + '"' + (jawab[id] === undefined || jawab[id] === null ? ' disabled title="Pilih jawaban dulu"' : '') + '>' + ic('flag', 16) + 'Ragu-ragu</button>' +
+      '<button type="button" class="btn btn-ghost btn-step" data-act="uj-next" aria-label="Soal berikutnya"' + (a.idx >= n - 1 ? ' disabled' : '') + '>' + ic('chev', 22) + '</button></div>';
+    if (confirming && sisa === 0) {
+      h += '<div class="confirm"><p><b>Akhiri ujian sekarang?</b> Jawaban tidak bisa diubah setelahnya.' + (ragu ? ' Masih ada ' + ragu + ' soal ditandai ragu-ragu.' : '') + '</p><div class="row"><button type="button" class="btn" data-act="uj-ya">Ya, akhiri</button><button type="button" class="btn btn-ghost" data-act="uj-batal">Kembali</button></div></div>';
+    } else {
+      h += '<button type="button" class="btn btn-block" data-act="uj-akhiri"' + (sisa > 0 ? ' disabled' : '') + '>Akhiri Ujian</button>';
+      if (sisa > 0) h += '<p class="note" style="text-align:center">Masih ada ' + sisa + ' soal yang belum dijawab.</p>';
+      else if (ragu) h += '<p class="note" style="text-align:center">Ada ' + ragu + ' soal ditandai ragu-ragu. Buka Nomor untuk meninjau.</p>';
+    }
+    return h;
+  }
+
+  function vUjianHasil() {
+    var r = ujHasil;
+    return '<h1 class="h1">Hasil Ujian</h1>' +
+      '<section class="glass card"><div class="eyebrow" style="color:var(--ink-2)">Nilai</div><div class="score">' + fmtNum(r.nilai) + '<small> / 100</small></div>' +
+      '<p class="lead">' + (r.waktuHabis ? 'Waktu habis. Soal yang belum dijawab dihitung salah.' : 'Ujian diakhiri.') + ' Lama pengerjaan ' + fmtTime(r.durasi) + '.</p></section>' +
+      '<div class="two"><div class="glass"><b>' + r.benar + '</b><span>Jawaban benar</span></div><div class="glass"><b>' + r.salah + '</b><span>Jawaban salah</span></div></div>' +
+      '<p class="note">Hasil ini sudah tersimpan di menu Progres.</p>' +
+      '<div class="row"><button type="button" class="btn" data-act="go" data-v="progres">Lihat Progres</button><button type="button" class="btn btn-ghost" data-act="uj-ulang">Ujian lagi</button></div>';
+  }
+
+  function ujMulai() {
+    if (!ALL.length) { toast('Belum ada soal tersedia.'); return; }
+    muat('Menyiapkan ujian', ujMulaiInti);
+  }
+
+  function ujMulaiInti() {
+    var ids = shuffle(ALL).slice(0, ujianJumlah());
+    var now = Date.now();
+    aktif = { id: now.toString(36) + Math.random().toString(36).slice(2, 6), startAt: now, endAt: now + D.pengaturan.ujianMenit * 60000, ids: ids, answers: {}, flags: {}, idx: 0 };
+    ujHasil = null; confirming = false; navOpen = false;
+    saveAktif();
+    render({ top: true });
+  }
+
+  function finish(waktuHabis) {
+    if (!aktif) return;
+    var a = aktif, benar = 0, total = a.ids.length;
+    var detail = {};
+    a.ids.forEach(function (id) {
+      var jw = a.answers[id];
+      if (jw === undefined || jw === null) detail[id] = -1;
+      else if (jw === Q[id].kunci) { detail[id] = 1; benar++; }
+      else detail[id] = 0;
+    });
+    var end = Math.min(Date.now(), a.endAt);
+    var rec = {
+      id: a.id, tanggal: new Date(end).toISOString(), benar: benar, salah: total - benar, total: total,
+      nilai: Math.round(benar / total * 1000) / 10, durasi: Math.round((end - a.startAt) / 1000), waktuHabis: !!waktuHabis,
+      detail: detail
+    };
+    var h = getHist();
+    h.push(rec);
+    setHist(h);
+    aktif = null; sdel(K_AKTIF); confirming = false; ujHasil = rec;
+    if (view !== 'ujian') toast('Waktu ujian habis. Hasil sudah tersimpan di Progres.');
+    render({ top: true });
+  }
+
+  function tick() {
+    if (!aktif) return;
+    var rem = aktif.endAt - Date.now();
+    if (rem <= 0) { finish(true); return; }
+    var el = document.getElementById('timer');
+    if (el) {
+      var s = Math.ceil(rem / 1000);
+      el.textContent = fmtTime(s);
+      el.setAttribute('data-low', s < 60 ? '1' : '0');
+    }
+  }
+  setInterval(tick, 500);
+  document.addEventListener('visibilitychange', tick);
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !(navOpen || calcOpen)) return;
+    var kal = calcOpen;
+    closePopup(function () { fokus(kal ? 'calc-buka' : 'nav-buka'); });
+  });
+
+  /* ----- kalkulator ----- */
+  var OPSYM = { '+': '+', '-': '\u2212', '*': '\u00d7', '/': '\u00f7' };
+  function calcBaru() { return { cur: '0', acc: null, op: null, fresh: false, expr: '', err: false }; }
+  calc = calcBaru();
+  function cFmt(x) {
+    x = String(x);
+    if (/e/i.test(x)) return x.replace('.', ',');
+    var neg = x.charAt(0) === '-'; if (neg) x = x.slice(1);
+    var p = x.split('.'), ip = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (neg ? '-' : '') + ip + (p.length > 1 ? ',' + p[1] : '');
+  }
+  function cHitung(a, o, b) {
+    var r = o === '+' ? a + b : o === '-' ? a - b : o === '*' ? a * b : (b === 0 ? NaN : a / b);
+    if (!isFinite(r)) return null;
+    return String(parseFloat(r.toPrecision(12)));
+  }
+  function cError() { calc = calcBaru(); calc.err = true; }
+  function cTekan(k) {
+    if (calc.err && k !== 'C') calc = calcBaru();
+    var c = calc, r;
+    if (k.length === 1 && k >= '0' && k <= '9') {
+      if (c.fresh) { c.cur = k; c.fresh = false; }
+      else if (c.cur.replace(/[-.]/g, '').length < 15) c.cur = c.cur === '0' ? k : (c.cur === '-0' ? '-' + k : c.cur + k);
+    } else if (k === '.') {
+      if (c.fresh) { c.cur = '0.'; c.fresh = false; }
+      else if (c.cur.indexOf('.') < 0) c.cur += '.';
+    } else if (k === 'C') {
+      calc = calcBaru();
+    } else if (k === 'B') {
+      if (!c.fresh) c.cur = (c.cur.length > 1 && !(c.cur.length === 2 && c.cur.charAt(0) === '-')) ? c.cur.slice(0, -1) : '0';
+    } else if (k === 'N') {
+      if (c.cur !== '0' && c.cur !== '0.') c.cur = c.cur.charAt(0) === '-' ? c.cur.slice(1) : '-' + c.cur;
+    } else if (k === '%') {
+      c.cur = String(parseFloat((parseFloat(c.cur) / 100).toPrecision(12))); c.fresh = true;
+    } else if (OPSYM[k]) {
+      if (c.op && c.acc !== null && !c.fresh) {
+        r = cHitung(c.acc, c.op, parseFloat(c.cur));
+        if (r === null) { cError(); return; }
+        c.acc = parseFloat(r); c.cur = r;
+      } else c.acc = parseFloat(c.cur);
+      c.op = k; c.fresh = true; c.expr = cFmt(c.cur) + ' ' + OPSYM[k];
+    } else if (k === '=') {
+      if (c.op && c.acc !== null) {
+        var b = c.fresh ? c.acc : parseFloat(c.cur);
+        r = cHitung(c.acc, c.op, b);
+        if (r === null) { cError(); return; }
+        c.expr = cFmt(c.acc) + ' ' + OPSYM[c.op] + ' ' + cFmt(b) + ' =';
+        c.cur = r; c.acc = null; c.op = null; c.fresh = true;
+      }
+    }
+  }
+  function calcTeks() { return calc.err ? 'Tidak valid' : cFmt(calc.cur); }
+  function calcUkuran(t) { return t.length > 14 ? 22 : (t.length > 10 ? 28 : 36); }
+  function calcUpdate() {
+    var d = document.getElementById('calcd'), e = document.getElementById('calce');
+    if (!d || !e) return;
+    var t = calcTeks();
+    d.textContent = t; d.style.fontSize = calcUkuran(t) + 'px';
+    e.textContent = calc.expr || '\u00a0';
+  }
+  function vCalcPopup() {
+    var K = [
+      ['C', 'C', 'fn', 'Hapus semua'], ['B', ic('bksp', 22), 'fn', 'Hapus satu angka'], ['%', '%', 'fn', 'Persen'], ['/', '\u00f7', 'op', 'Bagi'],
+      ['7', '7'], ['8', '8'], ['9', '9'], ['*', '\u00d7', 'op', 'Kali'],
+      ['4', '4'], ['5', '5'], ['6', '6'], ['-', '\u2212', 'op', 'Kurang'],
+      ['1', '1'], ['2', '2'], ['3', '3'], ['+', '+', 'op', 'Tambah'],
+      ['N', '\u00b1', 'fn', 'Ubah positif atau negatif'], ['0', '0'], ['.', ',', '', 'Koma desimal'], ['=', '=', 'op', 'Sama dengan']
+    ];
+    var t = calcTeks();
+    return '<div class="ov" data-act="calc-tutup"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="calct" data-act="noop">' +
+      '<div class="sheet-h"><h2 class="h2" id="calct">Kalkulator</h2><button type="button" class="iconbtn" data-act="calc-tutup" aria-label="Tutup kalkulator">' + ic('x', 18) + '</button></div>' +
+      '<div class="cdisp"><div class="ce" id="calce">' + (calc.expr ? esc(calc.expr) : '&nbsp;') + '</div><div class="cd" id="calcd" style="font-size:' + calcUkuran(t) + 'px">' + esc(t) + '</div></div>' +
+      '<div class="ckeys">' + K.map(function (x) {
+        return '<button type="button" class="ck' + (x[2] ? ' ' + x[2] : '') + '" data-act="calc-key" data-k="' + x[0] + '"' + (x[3] ? ' aria-label="' + x[3] + '"' : '') + '>' + x[1] + '</button>';
+      }).join('') + '</div></div></div>';
+  }
+
+  /* ----- progres ----- */
+  function vProgres() {
+    var h = getHist(), st = stats(h);
+    var html = '<h1 class="h1">Progres Ujian</h1><p class="lead">Riwayat nilai dari ujian quiz yang sudah kamu selesaikan.</p>' + statsHtml(st);
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Perkembangan Nilai</h2>' + chart(h) + '</section>';
+    html += vPenguasaan(h, analisis(h));
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Riwayat</h2>';
+    if (!h.length) html += '<p class="empty">Belum ada riwayat ujian.</p>';
+    else {
+      html += '<ul class="hist">';
+      h.slice().reverse().forEach(function (r) {
+        html += '<li><div class="hn"><b>' + esc(fmtDate(r.tanggal)) + '</b><span>' + r.benar + ' benar, ' + r.salah + ' salah' + (r.waktuHabis ? ', waktu habis' : '') + '</span></div><span class="nv">' + fmtNum(r.nilai) + '</span></li>';
+      });
+      html += '</ul>';
+    }
+    html += '</section>';
+    html += '<section class="glass card"><h2 class="h2"><span class="dot"></span>Cadangan riwayat</h2>' +
+      '<p class="lead">Riwayat tersimpan di browser ini saja. Simpan cadangan agar tidak hilang saat data browser dihapus atau saat berganti HP.</p>' +
+      '<div class="row"><button type="button" class="btn btn-ghost" data-act="pr-salin"' + (h.length ? '' : ' disabled') + '>Salin cadangan</button>' +
+      (window.QL_CAN_DOWNLOAD ? '<button type="button" class="btn btn-ghost" data-act="pr-unduh"' + (h.length ? '' : ' disabled') + '>Unduh file</button>' : '') + '</div>';
+    if (cadangan) html += '<label for="cad" class="note">Salin teks berikut secara manual:</label><textarea id="cad" readonly>' + esc(cadangan) + '</textarea>';
+    html += '<label for="imp" class="note">Pulihkan dari cadangan: tempel teks cadangan atau pilih file.</label>' +
+      '<textarea id="imp" placeholder="Tempel teks cadangan di sini"></textarea>' +
+      '<div class="row"><button type="button" class="btn btn-sm" data-act="pr-pulihkan">Pulihkan</button>' +
+      '<span class="btn btn-ghost btn-sm filebtn">Pilih file cadangan<input type="file" id="impFile" accept=".json,application/json,text/plain" aria-label="Pilih file cadangan"></span></div></section>';
+    if (h.length) {
+      if (hapusConfirm) html += '<div class="confirm"><p><b>Hapus semua riwayat ujian?</b> Tindakan ini tidak bisa dibatalkan.</p><div class="row"><button type="button" class="btn" data-act="pr-hapus-ya">Ya, hapus</button><button type="button" class="btn btn-ghost" data-act="pr-hapus-batal">Batal</button></div></div>';
+      else html += '<button type="button" class="btn btn-ghost btn-block" data-act="pr-hapus">Hapus semua riwayat</button>';
+    }
+    return html;
+  }
+
+  function soalItem(s, tipe) {
+    var q = Q[s.id], n = s.benar + s.salah;
+    var info = tipe === 'salah' ? 'Salah ' + s.salah + ' dari ' + n + ' kali' : 'Benar ' + s.benar + ' dari ' + n + ' kali';
+    return '<li><div class="qt">' + esc(q.tanya) + '</div><div class="qm"><span class="chip">' + esc(q.babJudul.split('.')[0]) + '</span><span class="small muted">' + info + '</span></div></li>';
+  }
+  function daftarSoal(judul, list, tipe, kosong) {
+    var html = '<section class="glass card"><h2 class="h2"><span class="dot"></span>' + judul + '</h2>';
+    if (!list.length) return html + '<p class="empty">' + kosong + '</p></section>';
+    html += '<ul class="qlist">' + list.slice(0, 10).map(function (s) { return soalItem(s, tipe); }).join('') + '</ul>';
+    if (list.length > 10) html += '<p class="note">Dan ' + (list.length - 10) + ' soal lainnya.</p>';
+    if (tipe === 'salah') html += '<button type="button" class="btn btn-block" data-act="lat-mulai" data-b="salah">' + ic('pencil', 18) + 'Latih soal-soal ini</button>';
+    return html + '</section>';
+  }
+  function vPenguasaan(h, an) {
+    var html = '<section class="glass card"><h2 class="h2"><span class="dot"></span>Penguasaan per Bab</h2>';
+    if (!h.length) return html + '<p class="empty">Selesaikan satu ujian untuk melihat bab yang sudah dan belum kamu kuasai.</p></section>';
+    if (!an.ada) return html + '<p class="empty">Ujian sebelumnya belum mencatat hasil per soal. Analisis muncul setelah ujian berikutnya selesai.</p></section>';
+    html += '<ul class="mast">';
+    an.bab.forEach(function (x) {
+      var teks = !x.n ? 'Belum ada jawaban' : (x.n < MIN_BAB ? 'Baru ' + x.n + ' jawaban (minimal ' + MIN_BAB + ' agar dinilai)' : x.n + ' jawaban, ' + x.pct + '% benar');
+      html += '<li class="mrow"><div class="mtop"><span class="mt">' + esc(x.b.judul) + '</span><span class="pill pill-' + x.st.k + '">' + x.st.t + '</span></div>' +
+        '<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + x.pct + '" aria-label="Persentase benar ' + esc(x.b.judul) + '"><i style="width:' + x.pct + '%"></i></div>' +
+        '<div class="mbot"><span class="small muted">' + teks + '</span><button type="button" class="btn btn-ghost btn-sm" data-act="lat-mulai" data-b="' + x.b.id + '">Latih</button></div></li>';
+    });
+    html += '</ul><p class="note">Dihitung dari semua jawaban di riwayat ujian. Dikuasai mulai ' + BATAS_KUASAI + '% benar, Cukup mulai ' + BATAS_CUKUP + '%. Soal yang tidak sempat dijawab karena waktu habis tidak ikut dihitung.</p></section>';
+    html += daftarSoal('Soal yang Sering Salah', an.salah, 'salah', 'Belum ada soal yang sering salah. Soal baru dinilai setelah dijawab minimal ' + MIN_SOAL + ' kali.');
+    html += daftarSoal('Soal yang Selalu Benar', an.benar, 'benar', 'Belum ada soal yang dijawab benar terus. Soal baru dinilai setelah dijawab minimal ' + MIN_SOAL + ' kali.');
+    return html;
+  }
+
+  function cadanganJson() {
+    return JSON.stringify({ app: 'quizlearn', versi: 2, diekspor: new Date().toISOString(), riwayat: getHist() });
+  }
+  function pulihkan(text) {
+    var obj = parse((text || '').trim(), null);
+    var arr = Array.isArray(obj) ? obj : (obj && Array.isArray(obj.riwayat) ? obj.riwayat : null);
+    if (!arr) { toast('Teks cadangan tidak dikenali. Pastikan disalin utuh.'); return; }
+    var valid = arr.filter(validRec).map(cleanRec);
+    if (!valid.length) { toast('Tidak ada riwayat yang valid di cadangan ini.'); return; }
+    var h = getHist(), ada = {}, tambah = 0;
+    h.forEach(function (r) { ada[r.id] = true; });
+    valid.forEach(function (r) { if (!ada[r.id]) { ada[r.id] = true; h.push(r); tambah++; } });
+    h.sort(function (a, b) { return new Date(a.tanggal) - new Date(b.tanggal); });
+    setHist(h);
+    toast(tambah + ' riwayat berhasil dipulihkan.');
+    render();
+  }
+
+  /* ---------- aksi ---------- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-act]') : null;
+    if (!t || t.disabled) return;
+    var act = t.getAttribute('data-act');
+    var a = aktif;
+
+    if (act === 'noop') return;
+    if (act === 'go') { go(t.getAttribute('data-v')); return; }
+
+    if (act === 'lat-mulai') { latMulai(t.getAttribute('data-b')); return; }
+    if (act === 'lat-jawab') {
+      var lid = lat.list[lat.i];
+      if (lat.fase !== 'jalan' || lat.ans[lid] !== undefined) return;
+      lat.ans[lid] = parseInt(t.getAttribute('data-k'), 10);
+      render(); return;
+    }
+    if (act === 'lat-prev') { pindahSoal('prev', function () { if (lat.i > 0) lat.i--; }); return; }
+    if (act === 'lat-next') { pindahSoal('next', function () { if (lat.i < lat.list.length - 1) lat.i++; }); return; }
+    if (act === 'lat-ke') {
+      var latTujuan = parseInt(t.getAttribute('data-i'), 10);
+      if (latTujuan !== lat.i) { var latArah = latTujuan < lat.i ? 'prev' : 'next'; lat.i = latTujuan; render({ top: true, questionDirection: latArah }); }
+      closePopup(function () { fokus('nav-buka'); });
+      return;
+    }
+    if (act === 'lat-akhiri') { if (latHitung().dj >= lat.list.length) { lat.fase = 'selesai'; navOpen = false; render({ top: true }); } return; }
+    if (act === 'lat-ulang') { latMulai(lat.b); return; }
+    if (act === 'lat-keluar') { lat = latBaru(); navOpen = false; render({ top: true }); return; }
+
+    if (act === 'uj-mulai') { ujMulai(); return; }
+    if (act === 'uj-ulang') { ujHasil = null; render({ top: true }); return; }
+    if (!a && act.indexOf('uj-') === 0) return;
+    if (act === 'uj-jawab') { a.answers[a.ids[a.idx]] = parseInt(t.getAttribute('data-k'), 10); confirming = false; saveAktif(); render(); return; }
+    if (act === 'uj-ke') {
+      var ujTujuan = parseInt(t.getAttribute('data-i'), 10);
+      if (ujTujuan !== a.idx) { var ujArah = ujTujuan < a.idx ? 'prev' : 'next'; a.idx = ujTujuan; confirming = false; saveAktif(); render({ top: true, questionDirection: ujArah }); }
+      closePopup(function () { fokus('nav-buka'); });
+      return;
+    }
+    if (act === 'uj-ragu') { var rid = a.ids[a.idx]; if (a.answers[rid] === undefined || a.answers[rid] === null) return; if (a.flags[rid]) delete a.flags[rid]; else a.flags[rid] = true; saveAktif(); render(); return; }
+    if (act === 'calc-buka') { calcOpen = true; navOpen = false; syncOverlay(); var kb = $ov.querySelector('.iconbtn'); if (kb) kb.focus(); return; }
+    if (act === 'calc-tutup') { closePopup(function () { fokus('calc-buka'); }); return; }
+    if (act === 'calc-key') { cTekan(t.getAttribute('data-k')); calcUpdate(); return; }
+    if (act === 'nav-buka') { navOpen = true; calcOpen = false; syncOverlay(); var cb = $ov.querySelector('.iconbtn'); if (cb) cb.focus(); return; }
+    if (act === 'nav-tutup') { closePopup(function () { fokus('nav-buka'); }); return; }
+    if (act === 'uj-prev') { pindahSoal('prev', function () { if (a.idx > 0) a.idx--; confirming = false; saveAktif(); }); return; }
+    if (act === 'uj-next') { pindahSoal('next', function () { if (a.idx < a.ids.length - 1) a.idx++; confirming = false; saveAktif(); }); return; }
+    if (act === 'uj-akhiri') { confirming = true; render(); return; }
+    if (act === 'uj-batal') { confirming = false; render(); return; }
+    if (act === 'uj-ya') { finish(false); return; }
+
+    if (act === 'pr-salin') {
+      var json = cadanganJson();
+      var fallback = function () { cadangan = json; render(); toast('Salin teks cadangan secara manual dari kotak di bawah.'); };
+      try {
+        navigator.clipboard.writeText(json).then(function () { cadangan = null; toast('Cadangan disalin. Tempel dan simpan di catatan atau pesan ke diri sendiri.'); }, fallback);
+      } catch (err) { fallback(); }
+      return;
+    }
+    if (act === 'pr-unduh') {
+      try {
+        var blob = new Blob([cadanganJson()], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url; link.download = 'cadangan-quizlearn.json';
+        document.body.appendChild(link); link.click(); document.body.removeChild(link);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+        toast('File cadangan diunduh.');
+      } catch (err) { toast('Unduh gagal. Gunakan tombol Salin cadangan.'); }
+      return;
+    }
+    if (act === 'pr-pulihkan') { var ta = document.getElementById('imp'); pulihkan(ta ? ta.value : ''); return; }
+    if (act === 'pr-hapus') { hapusConfirm = true; render(); return; }
+    if (act === 'pr-hapus-batal') { hapusConfirm = false; render(); return; }
+    if (act === 'pr-hapus-ya') { setHist([]); hapusConfirm = false; ujHasil = null; toast('Riwayat dihapus.'); render(); return; }
+  });
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'impFile' && e.target.files && e.target.files[0]) {
+      var rd = new FileReader();
+      rd.onload = function () { pulihkan(String(rd.result || '')); };
+      rd.onerror = function () { toast('File tidak bisa dibaca.'); };
+      rd.readAsText(e.target.files[0]);
+    }
+  });
+
+  /* ---------- layar sambutan ---------- */
+  function welcome() {
+    var el = document.createElement('div');
+    el.id = 'welcome'; el.className = 'wel'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-labelledby', 'welt');
+    el.innerHTML = '<div class="wel-blur"></div><div class="wel-body"><div class="logo" aria-hidden="true">' + ic('bolt', 22) + '</div><h1 class="wel-t" id="welt">Are you ready?</h1><button type="button" class="btn wel-btn" id="welbtn">I am ready!</button></div>';
+    document.body.appendChild(el);
+    var inertEls = [document.querySelector('.app'), document.getElementById('dock')];
+    inertEls.forEach(function (x) { if (x) x.setAttribute('inert', ''); });
+    document.body.style.overflow = 'hidden';
+    var btn = document.getElementById('welbtn'), blur = el.querySelector('.wel-blur'), body = el.querySelector('.wel-body');
+    btn.focus();
+    var busy = false;
+    function selesai() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      inertEls.forEach(function (x) { if (x) x.removeAttribute('inert'); });
+      document.body.style.overflow = navOpen ? 'hidden' : '';
+      try { $main.focus({ preventScroll: true }); } catch (e) {}
+    }
+    btn.addEventListener('click', function () {
+      if (busy) return; busy = true;
+      var r = btn.getBoundingClientRect();
+      bukaBlur(el, blur, body, r.left + r.width / 2, r.top + r.height / 2, selesai);
+    });
+  }
+
+  /* Animasi buka buram (dipakai layar sambutan dan layar loading): lingkaran jernih melebar dari titik (cx, cy) */
+  function bukaBlur(el, blur, body, cx, cy, selesai) {
+    var W = window.innerWidth, H = window.innerHeight;
+    var dx = Math.max(cx, W - cx), dy = Math.max(cy, H - cy);
+    var soft = 160, total = Math.sqrt(dx * dx + dy * dy) + soft;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    body.classList.add('out');
+    if (reduce || !window.requestAnimationFrame) { el.classList.add('fade'); setTimeout(selesai, 260); return; }
+    var dur = 1100, t0 = null;
+    function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), R = ease(p) * total;
+      var sf = Math.min(soft, R);
+      var m = 'radial-gradient(circle at ' + cx + 'px ' + cy + 'px, transparent ' + R + 'px, #000 ' + (R + sf) + 'px)';
+      blur.style.webkitMaskImage = m; blur.style.maskImage = m;
+      if (p < 1) requestAnimationFrame(frame); else selesai();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- layar loading 0-100% sebelum latihan / ujian dimulai ---------- */
+  var memuat = false;
+  function muat(label, aksi) {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (memuat) return;
+    if (reduce || !window.requestAnimationFrame) { aksi(); return; }
+    memuat = true;
+    var el = document.createElement('div');
+    el.className = 'wel ld'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', label);
+    el.innerHTML = '<div class="wel-blur"></div><div class="wel-body"><div class="logo" aria-hidden="true">' + ic('bolt', 22) + '</div>' +
+      '<div class="ld-pct">0%</div><div class="ld-bar" aria-hidden="true"><i></i></div><div class="ld-lbl">' + esc(label) + '</div></div>';
+    document.body.appendChild(el);
+    var inertEls = [document.querySelector('.app'), document.getElementById('dock')];
+    inertEls.forEach(function (x) { if (x) x.setAttribute('inert', ''); });
+    document.body.style.overflow = 'hidden';
+    var pct = el.querySelector('.ld-pct'), bar = el.querySelector('.ld-bar i'), blur = el.querySelector('.wel-blur'), body = el.querySelector('.wel-body');
+    function selesai() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      inertEls.forEach(function (x) { if (x) x.removeAttribute('inert'); });
+      document.body.style.overflow = (navOpen || calcOpen) ? 'hidden' : '';
+      memuat = false;
+      try { $main.focus({ preventScroll: true }); } catch (e) {}
+    }
+    var dur = 1000, t0 = null;
+    function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), e = ease(p);
+      pct.textContent = Math.round(e * 100) + '%';
+      bar.style.transform = 'scaleX(' + e + ')';
+      if (p < 1) { requestAnimationFrame(frame); return; }
+      aksi();   // latihan/ujian dibangun di balik layar buram
+      setTimeout(function () {
+        var r = body.getBoundingClientRect();
+        bukaBlur(el, blur, body, r.left + r.width / 2, r.top + r.height / 2, selesai);
+      }, 180);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- efek tekan tombol (delegasi: berlaku juga untuk tombol yang dibuat dinamis) ---------- */
+  (function () {
+    var selector = 'button:not([disabled]),input[type="button"]:not([disabled]),input[type="submit"]:not([disabled]),input[type="reset"]:not([disabled]),[role="button"]:not([aria-disabled="true"]),.btn:not([disabled]),.back:not([disabled]),.filebtn:not([disabled]),.chip-btn:not([disabled])';
+    var pressed = null, releaseTimer = null;
+    function release() {
+      if (pressed) pressed.classList.remove('ql-pressed');
+      pressed = null;
+      if (releaseTimer) { clearTimeout(releaseTimer); releaseTimer = null; }
+    }
+    document.addEventListener('pointerdown', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest(selector) : null;
+      if (!el) return;
+      release();
+      pressed = el;
+      el.classList.add('ql-pressed');
+    }, true);
+    function scheduleRelease() {
+      if (releaseTimer) clearTimeout(releaseTimer);
+      releaseTimer = setTimeout(release, 170);
+    }
+    document.addEventListener('pointerup', scheduleRelease, true);
+    document.addEventListener('pointercancel', release, true);
+    window.addEventListener('blur', release);
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== ' ' && e.key !== 'Enter') return;
+      var el = document.activeElement;
+      if (el && el.matches && el.matches(selector)) { pressed = el; el.classList.add('ql-pressed'); }
+    }, true);
+    document.addEventListener('keyup', function (e) {
+      if (e.key === ' ' || e.key === 'Enter') scheduleRelease();
+    }, true);
+  })();
+
+  /* ---------- mulai ---------- */
+  if (aktif && aktif.endAt <= Date.now()) {
+    finish(true);
+    toast('Waktu ujian sebelumnya sudah habis. Hasil tersimpan di Progres.');
+  } else {
+    render();
+  }
+  if (!aktif) welcome();   // ujian yang sedang berjalan tidak ditunda oleh layar sambutan
+})();
+
+</script>
+
+</body></html>
